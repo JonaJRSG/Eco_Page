@@ -1,0 +1,23 @@
+---
+// Sin Codigo
+---
+
+<div class="Container">
+  <div class="ContainerS">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .ContainerS {
+    background-image: radial-gradient(circle, transparent 0%, #242424 40%);
+    background-position: center center;
+    background-size: 10% 250%;
+  }
+
+  .Container {
+    background-image: linear-gradient(#303030 2.5px, transparent 2.5px),
+      linear-gradient(to right, #303030 2.5px, transparent 2.5px);
+    background-size: 10px 10px;
+  }
+</style>
