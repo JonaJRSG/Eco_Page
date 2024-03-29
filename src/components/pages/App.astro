@@ -1,0 +1,49 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PattternBG from "@/components/PatternBG.astro";
+import Navbar from "../Navbar.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <nav id="navbar" class="hidden fixed w-full top-12 clear:hidden tablet:block transition-all duration-500">
+      <Navbar class="max-w-fit mx-auto"/>
+    </nav>
+    <PattternBG>
+      <div id="Inicio" class="min-h-screen grid place-content-center">
+      </div>
+    </PattternBG>
+    <div id="SobreMi" class="h-[2000px]">
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 0.5s;
+  }
+</style>
+
+<script>
+  let navbar: HTMLElement | null = document.getElementById('navbar');
+  let lastScrollTop: number = 0;
+
+  window.addEventListener('scroll', function() {
+    let currentScroll: number = window.scrollY || document.documentElement.scrollTop;
+
+    console.log(currentScroll)
+
+    if(currentScroll >= 800) {
+      console.log("Hola")
+      navbar?.classList.remove("hidden")
+    }
+
+    if(currentScroll < 800) {
+      console.log("Hola")
+      navbar?.classList.add("hidden")
+    }
+  }, false);
+</script>

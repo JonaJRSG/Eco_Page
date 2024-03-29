@@ -1,0 +1,55 @@
+---
+import Glass from "@/components/Glass.astro"
+import Logo from "@/components/Logo.astro"
+import Link from "@/components/Link.astro"
+import DarkMode from "@/components/DarkMode.astro"
+
+interface Props {
+    class?: string 
+}
+
+const {class: className} = Astro.props
+---
+
+<main class={className}>
+    <Glass>
+        <div class="flex justify-between items-center">
+            <div class="px-2">
+                <Link href="/">
+                    <Logo class="w-12"/>
+                </Link>
+            </div>
+            <div class=" flex justify-end desktop:pl-64 transition-all">
+                <Link href="#Inicio" class="px-2 hover:text-xl transition-all">
+                    <span>Inicio</span>
+                </Link>
+                <Link href="#SobreMi" class="px-2 hover:text-xl transition-all">
+                    <span>Sobre mi</span>
+                </Link>
+                <Link href="/" class="px-2 hover:text-xl transition-all">
+                    <span>Mi equipo</span>
+                </Link>
+                <Link href="/" class="px-2 hover:text-xl transition-all">
+                    <span>Habilidades</span>
+                </Link>
+                <Link href="/" class="px-2 hover:text-xl transition-all">
+                    <span>Contacto</span>
+                </Link>
+            </div>
+            <div class="flex items-center">
+                <p class="px-4">
+                    |
+                </p>
+                <Link href="/" class="px-2 hover:text-xl transition-all">
+                    <span>Blog</span>
+                </Link>
+            </div>
+            <div class="flex items-center">
+                <p class="px-4">
+                    |
+                </p>
+                <DarkMode />
+            </div>
+        </div>
+    </Glass>
+</main>
