@@ -24,35 +24,23 @@ export const showDefaultLang = false;
 export const ui = {
   es: {
     "nav.home": "Inicio",
-    "nav.about": "Vota",
+    "nav.about": "Sobre mi",
     "nav.team": "Información",
-    "nav.skills": "Archivo",
-    "nav.constac": "Aviso Legal",
+    "nav.skills": "Habilidades",
+    "nav.contac": "Contactame",
+    "nav.blog": "Blog",
   },
   en: {
     "nav.home": "Home",
     "nav.about": "About me",
     "nav.team": "My team",
     "nav.skills": "Skills",
-    "nav.constac": "Contact",
+    "nav.contac": "Contact me",
+    "nav.blog": "Blog",
   },
 } as const;
 
 export const routes = {
-  es: {
-    vota: "vota",
-    info: "info",
-    archivo: "archivo",
-    "aviso-legal": "aviso-legal",
-    privacidad: "privacidad",
-    cookies: "cookies",
-  },
-  en: {
-    vota: "vote",
-    info: "information",
-    archivo: "archive",
-    "aviso-legal": "legal-notice",
-    privacidad: "privacy",
-    cookies: "cookies",
-  },
+  es: {},
+  en: {},
 };
