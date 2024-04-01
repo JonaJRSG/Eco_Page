@@ -9,10 +9,8 @@ const { class: classList, hover: optionHover} = Astro.props
 const hov = optionHover ? "hover:ring hover:ring-Eco-70 hover:border-1" : ""
 ---
 
-<main>
-  <div
-  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}
-  >
-    <slot />
-  </div>
+
+<main class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}>
+  <slot />
 </main>
+

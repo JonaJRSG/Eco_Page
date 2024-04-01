@@ -3,10 +3,15 @@ import Layout from "@/layouts/Layout.astro";
 import PattternBG from "@/components/PatternBG.astro";
 import Navbar from "@/components/Navbar.astro";
 import IndexGrid from "@/components/IndexGrid.astro";
+import LanguageSelector from "@/components/LanguageSelector.astro";
+import Glass from "@/components/Glass.astro";
 ---
 
 <Layout title="Eco_Page.">
   <main>
+    <div id="lang" class="clear:hidden tablet:block transition-all duration-500 fixed px-4 py-2 right-12 top-10">
+      <LanguageSelector/>
+    </div>
     <nav id="navbar" class="hidden fixed w-full top-12 clear:hidden tablet:block transition-all duration-500">
       <Navbar class="max-w-fit mx-auto"/>
     </nav>
@@ -31,16 +36,19 @@ import IndexGrid from "@/components/IndexGrid.astro";
 
 <script>
   let navbar: HTMLElement | null = document.getElementById('navbar');
+  let lang: HTMLElement | null = document.getElementById('lang');
 
   window.addEventListener('scroll', function() {
     let currentScroll: number = window.scrollY || document.documentElement.scrollTop;
 
-    if(currentScroll >= 700) {
+    if(currentScroll >= 800) {
       navbar?.classList.remove("hidden")
+      lang?.classList.add("hidden")
     }
 
     if(currentScroll < 800) {
       navbar?.classList.add("hidden")
+      lang?.classList.remove("hidden")
     }
   }, false);
 </script>

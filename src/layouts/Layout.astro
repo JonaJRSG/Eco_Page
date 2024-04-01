@@ -13,9 +13,10 @@ const { currentLocale } = Astro
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="/fonts/fonts.css">
+    <link rel="icon" type="image/svg+xml" href="/LOGO.svg">
     <title>{title}</title>
   </head>
   <body>
@@ -32,6 +33,5 @@ const { currentLocale } = Astro
     color-scheme: dark light;
     scroll-behavior: smooth;
   }
-  code {
-  }
+  code {}
 </style>

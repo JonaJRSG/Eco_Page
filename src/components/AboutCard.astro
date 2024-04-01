@@ -1,8 +1,26 @@
 ---
 import Glass from "@/components/Glass.astro"
+import ArrowUpR from "@/components/icons/ArrowUpR.astro"
 ---
 
-<Glass class="max-w-72 p-8" hover={true}>
-    <h3>Sobre mi</h3>
-    <p>Soy un estudiante de ingenieria en software amante</p>
+<Glass hover={true} class="flex flex-col justify-between 2-full p-6 h-full group">
+    <h3 class="font-satoshi font-bold text-xl">Sobre mi</h3>
+    <p class="font-satoshi text-sm">
+        Soy un apasionado estudiante de Ingeniería en Software, con una amplia experiencia en diversos roles dentro de proyectos de desarrollo. Mis habilidades principales incluyen dominio de lenguajes como:
+    </p>
+    <ul class="list-disc list-inside !font-satoshi py-1">
+        <li>JavaScrip</li>
+        <li>TypeScrip</li>
+        <li>Python</li>
+        <li>Astro</li>
+        <li>React</li>
+        <li>Node Js</li>
+    </ul>
+    <p class="font-satoshi text-sm">
+        Pero mi interés no se limita solo al desarrollo de software. También soy un entusiasta del hardware informático. Desde la creación y mantenimiento de servidores hasta el ensamblaje de PC y terclados personalizados.
+    </p>
+    <div class="flex justify-end items-center content-center">
+        <p class="font-satoshi font-normal text-xs pr-2">Mas sobre mi</p>
+        <ArrowUpR class="w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"/>
+    </div>
 </Glass>
