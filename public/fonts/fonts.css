@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Satoshi_Italic";
+  src: url("/fonts/Satoshi-VariableItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cabinet";
+  src: url("/fonts/CabinetGotesk-Variable.ttf") format("truetype");
+}

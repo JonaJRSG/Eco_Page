@@ -1,5 +1,5 @@
-import SpainFlag from "@/components/flags/Spain.astro";
-import UnitedStatesFlag from "@/components/flags/UnitedStates.astro";
+import SpainFlag from "@/components/icons/Spain.astro";
+import UnitedStatesFlag from "@/components/icons/UnitedStates.astro";
 
 // Add missing imports
 export const LANGUAGES: Record<
@@ -25,7 +25,7 @@ export const ui = {
   es: {
     "nav.home": "Inicio",
     "nav.about": "Sobre mi",
-    "nav.team": "Información",
+    "nav.team": "Mi equipo",
     "nav.skills": "Habilidades",
     "nav.contac": "Contactame",
     "nav.blog": "Blog",

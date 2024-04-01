@@ -2,15 +2,17 @@
 import Layout from "@/layouts/Layout.astro";
 import PattternBG from "@/components/PatternBG.astro";
 import Navbar from "@/components/Navbar.astro";
+import IndexGrid from "@/components/IndexGrid.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Eco_Page.">
   <main>
     <nav id="navbar" class="hidden fixed w-full top-12 clear:hidden tablet:block transition-all duration-500">
       <Navbar class="max-w-fit mx-auto"/>
     </nav>
     <PattternBG>
       <div id="Inicio" class="min-h-screen grid place-content-center">
+        <IndexGrid/>
       </div>
     </PattternBG>
     <div id="SobreMi" class="h-[2000px]">
@@ -29,20 +31,15 @@ import Navbar from "@/components/Navbar.astro";
 
 <script>
   let navbar: HTMLElement | null = document.getElementById('navbar');
-  let lastScrollTop: number = 0;
 
   window.addEventListener('scroll', function() {
     let currentScroll: number = window.scrollY || document.documentElement.scrollTop;
 
-    console.log(currentScroll)
-
-    if(currentScroll >= 800) {
-      console.log("Hola")
+    if(currentScroll >= 700) {
       navbar?.classList.remove("hidden")
     }
 
     if(currentScroll < 800) {
-      console.log("Hola")
       navbar?.classList.add("hidden")
     }
   }, false);

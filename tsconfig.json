@@ -1,9 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "E:/Eco_Page/Desarrollo/Eco_Page",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

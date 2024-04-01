@@ -1,7 +1,7 @@
 ---
 import ChevronIcon from "@/components/icons/Chevron.astro"
-import { LANGUAGES } from '../i18n/ui';
-import { getRouteFromUrl, useTranslatedPath, getLangFromUrl } from '../i18n/utils';
+import { LANGUAGES } from '@/i18n/ui';
+import { getRouteFromUrl, useTranslatedPath, getLangFromUrl } from '@/i18n/utils';
 
 const route = getRouteFromUrl(Astro.url);
 const lang = getLangFromUrl(Astro.url);
@@ -15,7 +15,7 @@ const otherLocales = Object.values(LANGUAGES).filter(
 
 <div class="relative inline-block text-left">
   <div
-    class="group text-white rounded-md text-xs font-semibold bg-black/30 hover:bg-black/70 transition-all"
+    class="group text-white rounded-md text-xs font-semibold bg-black/20 hover:bg-black/50 transition-all"
   >
     <button
       type="button"
@@ -35,7 +35,7 @@ const otherLocales = Object.values(LANGUAGES).filter(
 
           <li class="py-[2px]">
             <a
-              class="rounded-md bg-black/30 hover:bg-black/70 whitespace-no-wrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
+              class="rounded-md bg-black/20 hover:bg-black/50 whitespace-no-wrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
               href={translatePath(`/${route ? route : ''}`, locale.code)}
             >
               <locale.flag />

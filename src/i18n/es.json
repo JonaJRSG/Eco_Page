@@ -1,1 +1,10 @@
-{}
+{
+  "Card_Main": {
+    "Welcome": "Bienvenido",
+    "Paragraph": {
+      "part1": "¡Hola, mundo! Soy ",
+      "partB": "Eco_Jrsg",
+      "part2": ", un apasionado estudiante de ingeniería en software y un enamorado empedernido de la informática en su totalidad, desde el más desafiante software hasta los intrincados secretos del funcionamiento del hardware."
+    }
+  }
+}

@@ -1,0 +1,48 @@
+---
+import Glass from "@/components/Glass.astro";
+import Logo from "@/components/Logo.astro";
+import Button from "./Button.astro";
+import Github from "@/components/icons/Github.astro"
+import Discord from "@/components/icons/Discord.astro";
+import Instagram from "@/components/icons/Instagram.astro";
+import Tooltip from "@/components/XComponents/Tooltip"
+import Robot from "@/components/icons/Robot.astro"
+import Link  from "@/components/Link.astro";
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Glass hover={true} class="grid grid-cols-4 grid-rows-3 grid-rows-3fr-1fr gap-10 min-w-16 max-w-[800px] p-8">
+    <div class="col-span-3 row-span-2">
+       <span class="font-satoshi font-normal opacity-50">{i18n.Card_Main.Welcome}</span>
+       <p class="font-satoshi font-normal">{i18n.Card_Main.Paragraph.part1}<b class="font-bold">{i18n.Card_Main.Paragraph.partB}</b>{i18n.Card_Main.Paragraph.part2}</p>
+    </div>
+    <div class="row-span-3 flex justify-center ">
+        <Logo class="w-36"/>
+    </div>
+    <div class="col-span-2 flex gap-5">
+        <Link href="https://github.com/JonaJRSG" blank={true}>
+            <Button >
+                <Github/>
+            </Button>
+        </Link>
+        <Link href="https://github.com/JonaJRSG" blank={true}>
+            <Button >
+                <Instagram/>
+            </Button>
+        </Link>
+        <Link href="https://github.com/JonaJRSG" blank={true}>
+            <Button >
+                <Discord/>
+            </Button>
+        </Link>
+        <Tooltip client:visible>
+            <Button>
+                <Robot/>
+            </Button>
+        </Tooltip>
+    </div>
+</Glass>
