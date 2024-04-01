@@ -50,11 +50,6 @@ export default {
       fontFamily: {
         satoshi: ["satoshi", "sans"],
       },
-      fontWeight: {
-        normal: 300,
-        semibold: 400,
-        bold: 700,
-      },
     },
   },
   plugins: [],
