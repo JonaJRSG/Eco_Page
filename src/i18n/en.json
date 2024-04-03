@@ -6,5 +6,12 @@
       "partB": "Eco_Jrsg",
       "part2": ", a passionate software engineering student and a diehard lover of computing in its entirety, from the most challenging software to the intricate secrets of hardware operation."
     }
+  },
+
+  "About_Card": {
+    "title": "About me",
+    "intro": "I am a passionate Software Engineering student, with extensive experience in various roles within development projects. My main skills include mastery of languages such as:",
+    "more": "But my interest is not limited to just software development. I am also a computer hardware enthusiast. From creating and maintaining servers to assembling custom PCs and keyboards.",
+    "btnMore": "More about me"
   }
 }

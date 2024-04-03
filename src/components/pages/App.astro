@@ -4,22 +4,27 @@ import PattternBG from "@/components/PatternBG.astro";
 import Navbar from "@/components/Navbar.astro";
 import IndexGrid from "@/components/IndexGrid.astro";
 import LanguageSelector from "@/components/LanguageSelector.astro";
+import Logo from "@/components/Logo.astro";
 ---
 
 <Layout title="Eco_Page.">
   <main>
-    <div id="lang" class="clear:hidden tablet:block transition-all duration-500 fixed px-4 py-2 right-12 top-10" transition:name="lang">
+    <div id="lang" class="relative flex justify-between md:justify-end pt-3 pl-3 pr-3 z-50 transition-all duration-300">
+      <div class="flex items-center">
+        <Logo class="w-7 block md:hidden"/>
+      <p class="pl-3 font-satoshi font-bold block md:hidden"> Eco_Jrsg</p>
+      </div>
       <LanguageSelector/>
     </div>
-    <nav id="navbar" class="hidden fixed w-full top-12 clear:hidden tablet:block transition-all duration-500" transition:name="nav">
+    <nav id="navbar" class="fixed w-full top-12 hidden md:block transition-all duration-300">
       <Navbar class="max-w-fit mx-auto"/>
     </nav>
     <PattternBG>
-      <div id="Inicio" class="min-h-screen grid place-content-center">
+      <div id="Inicio" class="min-h-[90vh] grid place-content-center">
         <IndexGrid/>
       </div>
     </PattternBG>
-    <div id="SobreMi" class="h-[2000px]">
+    <div id="WIP" class="h-[2000px]">
 
     </div>
   </main>
@@ -29,7 +34,7 @@ import LanguageSelector from "@/components/LanguageSelector.astro";
   .hidden {
     opacity: 0;
     pointer-events: none;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
   }
 </style>
 

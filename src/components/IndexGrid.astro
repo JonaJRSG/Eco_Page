@@ -2,15 +2,19 @@
 import CardMain from "@/components/CardMain.astro"
 import AboutCard from "@/components/AboutCard.astro"
 import Link from "@/components/Link.astro"
+import LetsWork from "@/components/LetsWork.astro"
 ---
 
 <div class=" m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]">
-    <div class="col-span-3 row-span-3">
+    <div class="md:col-span-3 md:row-span-3">
         <CardMain/>
     </div>
-    <div class="row-span-6 h-full">
-        <Link href="#SobreMi">
+    <div class="md:row-span-6 h-full">
+        <Link href="#WIP">
             <AboutCard/>
         </Link>
+    </div>
+    <div class="md:row-span-4 h-full">
+        <LetsWork/>
     </div>
 </div>

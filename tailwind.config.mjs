@@ -30,25 +30,10 @@ export default {
         "social-btn": "3px 3px 0px 0px rgba(31, 15, 45, 1)",
       },
 
-      screens: {
-        clear: "0px",
-        // => @media (min-width: 640px) { ... }
-
-        phone: "640px",
-        // => @media (min-width: 640px) { ... }
-
-        tablet: "768px",
-        // => @media (min-width: 768px) { ... }
-
-        laptop: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
-        desktop: "1280px",
-        // => @media (min-width: 1280px) { ... }
-      },
-
       fontFamily: {
         satoshi: ["satoshi", "sans"],
+        "satoshi-italic": ["satoshi_italic", "sans"],
+        cabinet: ["cabinet", "sans"],
       },
     },
   },
