@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 83.4 101">
+  <defs>
+    <style>
+      .cls-1 {
+        display: none;
+        fill: url(#Degradado_sin_nombre_3);
+        isolation: isolate;
+        opacity: .4;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre);
+      }
+
+      .cls-3 {
+        fill: url(#Degradado_sin_nombre_2);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre" data-name="Degradado sin nombre" x1="1326.4" y1="1704.4" x2="1407.1" y2="1773.9" gradientTransform="translate(-782.9 -1007.1) scale(.6)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5a9fd4"/>
+      <stop offset="1" stop-color="#306998"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_2" data-name="Degradado sin nombre 2" x1="1428.3" y1="1819" x2="1399.5" y2="1778.2" gradientTransform="translate(-782.9 -1007.1) scale(.6)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd43b"/>
+      <stop offset="1" stop-color="#ffe873"/>
+    </linearGradient>
+    <radialGradient id="Degradado_sin_nombre_3" data-name="Degradado sin nombre 3" cx="-6251.3" cy="1834.4" fx="-6251.3" fy="1834.4" r="29" gradientTransform="translate(-1943.4 -1238) rotate(-90) scale(.2 1.1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8b8b8" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#7f7f7f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <sodipodi:namedview id="base" width="210mm" height="40mm" bordercolor="#666666" borderopacity="1.0" gridtolerance="10.0" guidetolerance="10.0" inkscape:current-layer="svg2" inkscape:cx="91.558698" inkscape:cy="47.9926" inkscape:deskcolor="#d1d1d1" inkscape:document-units="pt" inkscape:pagecheckerboard="0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:showpageshadow="2" inkscape:window-height="2080" inkscape:window-maximized="0" inkscape:window-width="1976" inkscape:window-x="1092" inkscape:window-y="72" inkscape:zoom="2.1461642" objecttolerance="10.0" pagecolor="#ffffff" showgrid="false" units="mm"/>
+  <path id="path1948" class="cls-2" d="M40.6,0c-3.4,0-6.7.3-9.5.8-8.4,1.5-9.9,4.6-9.9,10.3v7.6h19.8v2.5H13.7c-5.8,0-10.8,3.5-12.4,10.1-1.9,7.6-1.9,12.3,0,20.1,1.4,5.8,4.8,10.1,10.5,10.1h6.8v-9c0-6.5,5.7-12.4,12.4-12.4h19.8c5.6,0,9.9-4.5,9.9-10.1V11.1c0-5.4-4.5-9.4-9.9-10.3-3.3-.6-6.9-.8-10.3-.8ZM29.9,6.1c2.1,0,3.7,1.7,3.7,3.8s-1.7,3.8-3.7,3.8-3.7-1.7-3.7-3.8,1.7-3.8,3.7-3.8Z"/>
+  <path id="path1950" class="cls-3" d="M63.3,21.2v8.8c0,6.8-5.8,12.6-12.4,12.6h-19.8c-5.4,0-9.9,4.7-9.9,10.1v18.9c0,5.4,4.7,8.5,9.9,10.1,6.3,1.9,12.3,2.1,19.8,0,5-1.5,9.9-4.4,9.9-10.1v-7.6h-19.8v-2.5h29.8c5.8,0,7.9-4,9.9-10.1,2.1-6.2,2-12.2,0-20.1-1.4-5.8-4.1-10.1-9.9-10.1h-7.5,0ZM52.2,69.1c2.1,0,3.7,1.7,3.7,3.8s-1.7,3.8-3.7,3.8-3.7-1.7-3.7-3.8,1.7-3.8,3.7-3.8Z"/>
+  <ellipse id="path1894" class="cls-1" cx="55.8" cy="127.7" rx="35.9" ry="7"/>
+</svg>

@@ -29,6 +29,7 @@ export const ui = {
     "nav.skills": "Habilidades",
     "nav.contac": "Contactame",
     "nav.blog": "Blog",
+    "nav.repo": "Repositorio",
   },
   en: {
     "nav.home": "Home",
@@ -37,6 +38,7 @@ export const ui = {
     "nav.skills": "Skills",
     "nav.contac": "Contact me",
     "nav.blog": "Blog",
+    "nav.repo": "Repository",
   },
 } as const;
 

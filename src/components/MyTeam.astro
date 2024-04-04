@@ -1,0 +1,22 @@
+---
+import Glass from "@/components/Glass.astro"
+import ArrowDownR from "./icons/ArrowDownR.astro"
+import Emilio from "@/components/icons/Emilio.astro"
+import Yari from "@/components/icons/Yari.astro"
+import IconQuestion from "@/components/icons/IconQuestion.astro"
+---
+
+<Glass hover={true} class="h-full p-6 flex flex-col justify-between group">
+    <div>
+        <h3 class="font-satoshi font-bold text-xl">Mi equipo</h3>
+    </div>
+    <div class="grid place-items-center grid-cols-3">
+        <Emilio class="w-16"/>
+        <IconQuestion class="w-14"/>
+        <IconQuestion class="w-14"/>
+    </div>
+    <div class="flex justify-end items-center content-center">
+        <p class="font-satoshi font-normal text-xs pr-2">Conocelos</p>
+        <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
+    </div>
+</Glass>

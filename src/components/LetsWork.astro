@@ -2,27 +2,32 @@
 import Glass from "@/components/Glass.astro";
 import ArrowDownR from "@/components/icons/ArrowDownR.astro";
 import Link from "@/components/Link.astro";
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<Glass hover={true} class="h-full p-6 flex flex-col group">
+<Glass hover={true} class="h-full p-6 flex flex-col">
     <h3 class="font-satoshi font-bold text-xl pb-3">
-        Empezemos a trabajar juntos
+        {i18n.Lets_Work.title}
     </h3>
     <div class="h-full flex flex-col justify-between">
         <div>
-            <p class="font-satoshi-italic font-normal opacity-50">Detalles de contacto</p>
+            <p class="font-satoshi-italic font-normal opacity-50">{i18n.Lets_Work.details}</p>
             <a class="font-satoshi-italic" href="mailto:eco.jrsg@gmail.com">eco.jsrg@gmail.com</a>
         </div>
         <div class="flex flex-col">
-            <p class="font-satoshi font-normal opacity-50">Redes</p>
+            <p class="font-satoshi font-normal opacity-50">{i18n.Lets_Work.social}</p>
             <a class="font-satoshi" href="/">Github</a>
-            <a class="font-satoshi" href="/">Intagram</a>
+            <a class="font-satoshi" href="/">Instagram</a>
             <a class="font-satoshi" href="/">Discord</a>
         </div>
         <div>
             <Link href="#WIP">
-                <div class="flex justify-end items-center content-center">
-                    <p class="font-satoshi font-normal text-xs pr-2">Contactame</p>
+                <div class="flex justify-end items-center content-center group">
+                    <p class="font-satoshi font-normal text-xs pr-2">{i18n.Lets_Work.bntContact}</p>
                     <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
                 </div>
             </Link>

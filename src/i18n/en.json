@@ -1,10 +1,10 @@
 {
   "Card_Main": {
-    "Welcome": "Welcome",
-    "Paragraph": {
+    "welcome": "Welcome",
+    "paragraph": {
       "part1": "Hello, world! I'm ",
       "partB": "Eco_Jrsg",
-      "part2": ", a passionate software engineering student and a diehard lover of computing in its entirety, from the most challenging software to the intricate secrets of hardware operation."
+      "part2": ", a passionate software engineer student and a diehard lover of computing in its entirety, from the most challenging software to the intricate secrets of hardware operation."
     }
   },
 
@@ -13,5 +13,12 @@
     "intro": "I am a passionate Software Engineering student, with extensive experience in various roles within development projects. My main skills include mastery of languages such as:",
     "more": "But my interest is not limited to just software development. I am also a computer hardware enthusiast. From creating and maintaining servers to assembling custom PCs and keyboards.",
     "btnMore": "More about me"
+  },
+
+  "Lets_Work": {
+    "title": "Let's start working together!",
+    "details": "Contact Details",
+    "social": "Socials",
+    "bntContact": "Contact me"
   }
 }

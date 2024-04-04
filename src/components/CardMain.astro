@@ -18,10 +18,10 @@ const i18n = getI18N({ currentLocale })
 <Glass hover={true} class="grid grid-cols-4 grid-rows-3 grid-rows-3fr-1fr gap-6 min-w-16 h-full p-6 md:col-span-3 md:row-span-4 relative overflow-hidden z-10">
     <div class="col-span-4 md:col-span-3 row-span-2">
         <span class="font-satoshi font-normal opacity-50">
-            {i18n.Card_Main.Welcome}
+            {i18n.Card_Main.welcome}
         </span>
         <p class="font-satoshi font-normal">
-            {i18n.Card_Main.Paragraph.part1}<b class="font-bold">{i18n.Card_Main.Paragraph.partB}</b>{i18n.Card_Main.Paragraph.part2}
+            {i18n.Card_Main.paragraph.part1}<b class="font-bold">{i18n.Card_Main.paragraph.partB}</b>{i18n.Card_Main.paragraph.part2}
         </p>
     </div>
     <div class="row-span-3 justify-center hidden md:flex">
@@ -46,10 +46,12 @@ const i18n = getI18N({ currentLocale })
                 <Discord/>
             </Button>
         </Link>
-        <Tooltip client:visible>
-            <Button>
-                <Robot/>
-            </Button>
-        </Tooltip>
+        <div class="hidden md:block">
+            <Tooltip client:visible>
+                <Button>
+                    <Robot/>
+                </Button>
+            </Tooltip>
+        </div>
     </div>
 </Glass>

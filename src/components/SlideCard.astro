@@ -1,0 +1,42 @@
+---
+import Slider from "@/components/Slider.astro";
+import Glass from "@/components/Glass.astro";
+import ArrowDownR from "./icons/ArrowDownR.astro";
+---
+
+<Glass hover={true} class="w-[96vw] md:w-full h-full p-3 transition-all flex flex-col justify-between gap-3 group">
+    <div class="flex justify-center">
+        <h3 class="font-satoshi font-bold text-xl">Mis herramientas</h3>
+    </div>
+    <div class="block md:hidden lg:block">
+        <Slider/>
+    </div>
+    <div class="hidden md:grid md:grid-cols-3 md:gap-y-12 lg:hidden place-items-center">
+        <div>
+            <img src="/logos/Js.svg" alt="" class="w-14">
+        </div>
+        <div>
+            <img src="/logos/Ts.svg" alt="" class="w-14">
+        </div>
+        <div>
+            <img src="/logos/Node.svg" alt="" class="w-14">
+        </div>
+        <div>
+            <img src="/logos/Python.svg" alt="" class="w-14">
+        </div>
+        <div>
+            <img src="/logos/Sql.svg" alt="" class="w-14">
+        </div>
+        <div>
+            <img src="/logos/React.svg" alt="" class="w-14">
+        </div>
+        <div></div>
+        <div>
+            <img src="/logos/NestJS.svg" alt="" class="w-14">
+        </div>
+    </div>
+    <div class="flex justify-end items-center content-center">
+        <p class="font-satoshi font-normal text-xs pr-2">Mas Herramientas</p>
+        <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
+    </div>
+</Glass>

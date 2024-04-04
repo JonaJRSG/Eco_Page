@@ -17,14 +17,14 @@ const {class: className} = Astro.props
 ---
 
 <main class={className}>
-    <Glass class="p-6 shadow-eco-shadow hidden md:block">
+    <Glass class="p-6 shadow-eco-shadow hidden lg:block">
         <div class="flex justify-between items-center">
             <div class="px-2">
                 <Link href="/">
                     <Logo class="w-12"/>
                 </Link>
             </div>
-            <div class=" flex justify-end lg:pl-64 transition-all">
+            <div class=" flex justify-end lg:pl-40 transition-all">
                 <Link href="#Inicio" class="px-2 hover:text-xl transition-all">
                     <span class="font-satoshi">{t("nav.home")}</span>
                 </Link>
@@ -47,6 +47,9 @@ const {class: className} = Astro.props
                 </p>
                 <Link href="/" class="px-2 hover:text-xl transition-all">
                     <span class="font-satoshi">{t("nav.blog")}</span>
+                </Link>
+                <Link href="/" class="px-2 hover:text-xl transition-all">
+                    <span class="font-satoshi">{t("nav.repo")}</span>
                 </Link>
             </div>
             <div class="flex items-center">

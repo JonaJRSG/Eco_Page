@@ -35,6 +35,27 @@ export default {
         "satoshi-italic": ["satoshi_italic", "sans"],
         cabinet: ["cabinet", "sans"],
       },
+
+      keyframes: {
+        slide: {
+          "0%": {
+            "-webkit-transform": "translateX(0)",
+            transform: "translateX(0)",
+          },
+          "100%": {
+            "-webkit-transform": "translateX(calc(-200px * 7))",
+            transform: "translateX(calc(-200px * 7))",
+          },
+        },
+      },
+
+      animation: {
+        slide: "slide 40s infinite linear",
+      },
+
+      width: {
+        "calc-slider": "calc(100px * 35)",
+      },
     },
   },
   plugins: [],

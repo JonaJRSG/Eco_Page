@@ -1,7 +1,7 @@
 {
   "Card_Main": {
-    "Welcome": "Bienvenido",
-    "Paragraph": {
+    "welcome": "Bienvenido",
+    "paragraph": {
       "part1": "¡Hola, mundo! Soy ",
       "partB": "Eco_Jrsg",
       "part2": ", un apasionado estudiante de ingeniería en software y un enamorado empedernido de la informática en su totalidad, desde el más desafiante software hasta los intrincados secretos del funcionamiento del hardware."
@@ -11,7 +11,16 @@
   "About_Card": {
     "title": "Sobre mi",
     "intro": "Soy un apasionado estudiante de Ingeniería en Software, con una amplia experiencia en diversos roles dentro de proyectos de desarrollo. Mis habilidades principales incluyen dominio de lenguajes como:",
-    "more": "Pero mi interés no se limita solo al desarrollo de software. También soy un entusiasta del hardware informático. Desde la creación y mantenimiento de servidores hasta el ensamblaje de PC y terclados personalizados.",
+    "more": "Pero mi interés no se limita solo al desarrollo de software, también soy un entusiasta del hardware informático. Desde la creación y mantenimiento de servidores hasta el ensamblaje de PC y teclados personalizados.",
     "btnMore": "Mas sobre mi"
-  }
+  },
+
+  "Lets_Work": {
+    "title": "¡Empecemos a trabajar juntos!",
+    "details": "Detalles de contacto",
+    "social": "Redes",
+    "bntContact": "Contactame"
+  },
+
+  "MyTeam": {}
 }

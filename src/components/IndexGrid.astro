@@ -3,18 +3,59 @@ import CardMain from "@/components/CardMain.astro"
 import AboutCard from "@/components/AboutCard.astro"
 import Link from "@/components/Link.astro"
 import LetsWork from "@/components/LetsWork.astro"
+import SlideCard from "@/components/SlideCard.astro"
+import MyTeam from "@/components/MyTeam.astro"
+import Glass from "@/components/Glass.astro"
+import Pulse from "@/components/Pulse.astro"
 ---
 
 <div class=" m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]">
     <div class="md:col-span-3 md:row-span-3">
         <CardMain/>
     </div>
-    <div class="md:row-span-6 h-full">
+    <div class="lg:row-span-6 h-full">
         <Link href="#WIP">
             <AboutCard/>
         </Link>
     </div>
-    <div class="md:row-span-4 h-full">
+    <div class="lg:row-span-4 h-full">
         <LetsWork/>
+    </div>
+    <div class="lg:col-span-2 lg:row-span-2 h-full">
+        <Link href="#WIP">
+            <SlideCard/>
+        </Link>
+    </div>
+    <div class="lg:row-span-2">
+        <Link href="#WIP"> 
+            <MyTeam/>
+        </Link>
+    </div>
+    <div>
+        <Link href="#WIP">
+            <Glass hover={true} class="h-full p-6 flex justify-between items-center">
+                <h3 class="font-satoshi font-bold text-xl">Repositorio</h3>
+                <p class="font-satoshi font-normal opacity-50">Ahora WIP</p>
+            </Glass>
+        </Link>
+    </div>
+    <div>
+        <Link href="#WIP">
+            <Glass hover={true} class="h-full p-6 flex justify-between items-center">
+                <h3 class="font-satoshi font-bold text-xl">Blog</h3>
+                <p class="font-satoshi font-normal opacity-50">Ahora WIP</p>
+            </Glass>
+        </Link>
+    </div>
+    <div>
+        <Link href="#WIP">
+            <Glass hover={true} class="h-full p-3 flex flex-col">
+                <div class="flex justify-between">
+                    <h3 class="font-satoshi text-lg">Ahora</h3>
+                    <Pulse/>
+                </div>
+                <p class="font-satoshi font-normal text-sm opacity-50">Desarrollador Back-end</p>
+            </Glass>
+        </Link>
     </div>
 </div>
