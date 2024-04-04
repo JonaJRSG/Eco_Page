@@ -1,0 +1,46 @@
+---
+import Glass from "@/components/Glass.astro"
+import Link from "@/components/Link.astro"
+import Button from "@/components/Button.astro"
+import Github from "@/components/icons/Github.astro"
+import Instagram from "@/components/icons/Instagram.astro"
+import Discord from "@/components/icons/Discord.astro"
+
+import { LINKS } from "@/lib/constants"
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<Glass class="w-3/4 p-12 md:grid md:grid-cols-2 md:place-items-center">
+    <h3 class="font-satoshi font-bold opacity-50 text-6xl md:text-8xl lg:text-9xl">WIP</h3>
+    <br class="md:hidden">
+    <div class="flex flex-col">
+        <p class="font-satoshi text-center">
+            {i18n.WIP.paragraph}
+        </p>
+        <br>
+        <p class="font-satoshi-italic opacity-50 text-center sm:text-">
+            {i18n.WIP.extra}
+        </p>
+        <br>
+        <div class="grid grid-cols-2 place-items-center gap-2 sm:flex sm:flex-row md:justify-center sm:gap-4">
+            <Link href={LINKS.github} blank={true}>
+                <Button>
+                    <Github/>
+                </Button>
+            </Link>
+            <Link href={LINKS.instagram} blank={true}>
+                <Button >
+                    <Instagram/>
+                </Button>
+            </Link>
+            <Link href={LINKS.discord} blank={true}>
+                <Button >
+                    <Discord/>
+                </Button>
+            </Link>
+        </div>
+    </div>
+</Glass>

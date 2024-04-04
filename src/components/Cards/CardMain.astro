@@ -1,7 +1,7 @@
 ---
 import Glass from "@/components/Glass.astro";
 import Logo from "@/components/Logo.astro";
-import Button from "./Button.astro";
+import Button from "../Button.astro";
 import Github from "@/components/icons/Github.astro"
 import Discord from "@/components/icons/Discord.astro";
 import Instagram from "@/components/icons/Instagram.astro";
@@ -9,6 +9,7 @@ import Tooltip from "@/components/Interactive/Tooltip"
 import Robot from "@/components/icons/Robot.astro"
 import Link  from "@/components/Link.astro";
 
+import { LINKS } from "@/lib/constants";
 import { getI18N } from "@/i18n/index"
 
 const { currentLocale } = Astro
@@ -31,17 +32,17 @@ const i18n = getI18N({ currentLocale })
         <Logo class="w-52"/>
     </div>
     <div class="col-span-2 flex gap-5">
-        <Link href="https://github.com/JonaJRSG" blank={true}>
+        <Link href={LINKS.github} blank={true}>
             <Button>
                 <Github/>
             </Button>
         </Link>
-        <Link href="https://github.com/JonaJRSG" blank={true}>
+        <Link href={LINKS.instagram} blank={true}>
             <Button >
                 <Instagram/>
             </Button>
         </Link>
-        <Link href="https://github.com/JonaJRSG" blank={true}>
+        <Link href={LINKS.discord} blank={true}>
             <Button >
                 <Discord/>
             </Button>

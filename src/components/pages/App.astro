@@ -2,9 +2,10 @@
 import Layout from "@/layouts/Layout.astro";
 import PattternBG from "@/components/PatternBG.astro";
 import Navbar from "@/components/Navbar.astro";
-import IndexGrid from "@/components/IndexGrid.astro";
+import IndexGrid from "@/components/Cards/IndexGrid.astro";
 import LanguageSelector from "@/components/LanguageSelector.astro";
 import Logo from "@/components/Logo.astro";
+import WIP from "@/components/WIP.astro";
 ---
 
 <Layout title="Eco_Page.">
@@ -16,7 +17,7 @@ import Logo from "@/components/Logo.astro";
       </div>
       <LanguageSelector/>
     </div>
-    <nav id="navbar" class="fixed w-full top-12 hidden md:block transition-all duration-300">
+    <nav id="navbar" class="fixed w-full top-12 hidden md:block transition-all duration-300 z-50">
       <Navbar class="max-w-fit mx-auto"/>
     </nav>
     <PattternBG>
@@ -24,7 +25,10 @@ import Logo from "@/components/Logo.astro";
         <IndexGrid/>
       </div>
     </PattternBG>
-    <div id="WIP" class="h-[2000px]">
+    <div id="WIP" class="flex justify-center pt-40">
+      <WIP/>
+    </div>
+    <div class="h-[400px]">
 
     </div>
   </main>

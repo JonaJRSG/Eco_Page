@@ -15,10 +15,40 @@
     "btnMore": "More about me"
   },
 
-  "Lets_Work": {
+  "Lets_Work_Card": {
     "title": "Let's start working together!",
     "details": "Contact Details",
     "social": "Socials",
     "bntContact": "Contact me"
+  },
+
+  "My_Tools_Card": {
+    "title": "My main tools",
+    "btnTools": "More tools"
+  },
+
+  "My_Team_Card": {
+    "title": "My team",
+    "btnThem": "Meet them"
+  },
+
+  "Repo_Card": {
+    "title": "Repository",
+    "estatus": "Now WIP"
+  },
+
+  "Blog_Card": {
+    "title": "Blog",
+    "estatus": "Now WIP"
+  },
+
+  "Now_Card": {
+    "title": "Now",
+    "employment": "Back-end developer"
+  },
+
+  "WIP": {
+    "paragraph": "Hello everyone! I'm excited to share my work on this page with you. I want you to know that this project is still in progress. If you like what you see so far and want to contribute, your help is more than welcome! Also, if you're interested in following my progress closely or just want to get in touch, I'm active on my social networks. Although these are temporary, I'll always be available.",
+    "extra": "Still not sure what to think about that navbar... Shall we change it?"
   }
 }

@@ -1,12 +1,17 @@
 ---
 import Slider from "@/components/Slider.astro";
 import Glass from "@/components/Glass.astro";
-import ArrowDownR from "./icons/ArrowDownR.astro";
+import ArrowDownR from "../icons/ArrowDownR.astro";
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Glass hover={true} class="w-[96vw] md:w-full h-full p-3 transition-all flex flex-col justify-between gap-3 group">
     <div class="flex justify-center">
-        <h3 class="font-satoshi font-bold text-xl">Mis herramientas</h3>
+        <h3 class="font-satoshi font-bold text-xl">{i18n.My_Tools_Card.title}</h3>
     </div>
     <div class="block md:hidden lg:block">
         <Slider/>
@@ -36,7 +41,7 @@ import ArrowDownR from "./icons/ArrowDownR.astro";
         </div>
     </div>
     <div class="flex justify-end items-center content-center">
-        <p class="font-satoshi font-normal text-xs pr-2">Mas Herramientas</p>
+        <p class="font-satoshi font-normal text-xs pr-2">{i18n.My_Tools_Card.btnTools}</p>
         <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
     </div>
 </Glass>

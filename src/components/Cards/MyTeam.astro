@@ -1,14 +1,19 @@
 ---
 import Glass from "@/components/Glass.astro"
-import ArrowDownR from "./icons/ArrowDownR.astro"
+import ArrowDownR from "../icons/ArrowDownR.astro"
 import Emilio from "@/components/icons/Emilio.astro"
 import Yari from "@/components/icons/Yari.astro"
 import IconQuestion from "@/components/icons/IconQuestion.astro"
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <Glass hover={true} class="h-full p-6 flex flex-col justify-between group">
     <div>
-        <h3 class="font-satoshi font-bold text-xl">Mi equipo</h3>
+        <h3 class="font-satoshi font-bold text-xl">{i18n.My_Team_Card.title}</h3>
     </div>
     <div class="grid place-items-center grid-cols-3">
         <Emilio class="w-16"/>
@@ -16,7 +21,7 @@ import IconQuestion from "@/components/icons/IconQuestion.astro"
         <IconQuestion class="w-14"/>
     </div>
     <div class="flex justify-end items-center content-center">
-        <p class="font-satoshi font-normal text-xs pr-2">Conocelos</p>
+        <p class="font-satoshi font-normal text-xs pr-2">{i18n.My_Team_Card.btnThem}</p>
         <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
     </div>
 </Glass>

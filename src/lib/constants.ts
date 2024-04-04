@@ -1,7 +1,7 @@
 export const LINKS = {
-  github: "",
-  linkedin: "",
-  discord: "",
+  github: "https://github.com/JonaJRSG",
+  instagram: "https://www.instagram.com/jonathan.rsg.serna/",
+  discord: "https://discord.gg/TWn4Ma5tUt",
 };
 
 export const loaderAnimation = [

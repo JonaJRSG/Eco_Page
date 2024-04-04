@@ -1,12 +1,17 @@
 ---
-import CardMain from "@/components/CardMain.astro"
-import AboutCard from "@/components/AboutCard.astro"
+import CardMain from "@/components/Cards/CardMain.astro"
+import AboutCard from "@/components/Cards/AboutCard.astro"
 import Link from "@/components/Link.astro"
-import LetsWork from "@/components/LetsWork.astro"
-import SlideCard from "@/components/SlideCard.astro"
-import MyTeam from "@/components/MyTeam.astro"
+import LetsWork from "@/components/Cards/LetsWork.astro"
+import SlideCard from "@/components/Cards/SlideCard.astro"
+import MyTeam from "@/components/Cards/MyTeam.astro"
 import Glass from "@/components/Glass.astro"
 import Pulse from "@/components/Pulse.astro"
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <div class=" m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]">
@@ -34,16 +39,16 @@ import Pulse from "@/components/Pulse.astro"
     <div>
         <Link href="#WIP">
             <Glass hover={true} class="h-full p-6 flex justify-between items-center">
-                <h3 class="font-satoshi font-bold text-xl">Repositorio</h3>
-                <p class="font-satoshi font-normal opacity-50">Ahora WIP</p>
+                <h3 class="font-satoshi font-bold text-xl">{i18n.Repo_Card.title}</h3>
+                <p class="font-satoshi font-normal opacity-50">{i18n.Repo_Card.estatus}</p>
             </Glass>
         </Link>
     </div>
     <div>
         <Link href="#WIP">
             <Glass hover={true} class="h-full p-6 flex justify-between items-center">
-                <h3 class="font-satoshi font-bold text-xl">Blog</h3>
-                <p class="font-satoshi font-normal opacity-50">Ahora WIP</p>
+                <h3 class="font-satoshi font-bold text-xl">{i18n.Blog_Card.title}</h3>
+                <p class="font-satoshi font-normal opacity-50">{i18n.Blog_Card.estatus}</p>
             </Glass>
         </Link>
     </div>
@@ -51,10 +56,10 @@ import Pulse from "@/components/Pulse.astro"
         <Link href="#WIP">
             <Glass hover={true} class="h-full p-3 flex flex-col">
                 <div class="flex justify-between">
-                    <h3 class="font-satoshi text-lg">Ahora</h3>
+                    <h3 class="font-satoshi text-lg">{i18n.Now_Card.title}</h3>
                     <Pulse/>
                 </div>
-                <p class="font-satoshi font-normal text-sm opacity-50">Desarrollador Back-end</p>
+                <p class="font-satoshi font-normal text-sm opacity-50">{i18n.Now_Card.employment}</p>
             </Glass>
         </Link>
     </div>
