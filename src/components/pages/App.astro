@@ -6,9 +6,10 @@ import IndexGrid from "@/components/Cards/IndexGrid.astro";
 import LanguageSelector from "@/components/LanguageSelector.astro";
 import Logo from "@/components/Logo.astro";
 import WIP from "@/components/WIP.astro";
+import { Des } from "@/lib/constants";
 ---
 
-<Layout title="Eco_Page.">
+<Layout title="Eco_Page." description={Des.main}>
   <main>
     <div id="lang" class="relative flex justify-between md:justify-end pt-3 pl-3 pr-3 z-50 transition-all duration-300">
       <div class="flex items-center">

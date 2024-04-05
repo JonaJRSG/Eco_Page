@@ -3,9 +3,28 @@ import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+const image = `${Astro.url.origin}/og-image.png`;
+
+const schema = {
+  "@context": "http://schema.org",
+  "@type": "Person",
+  name: "Jonathan",
+  url: "https://jonajrsg.github.io",
+  sameAs: [
+    "https://www.instagram.com/jonathan.rsg.serna/",
+    "https://github.com/JonaJRSG",
+  ],
+  image: "https://github.com/JonaJRSG/og-image.png",
+  jobTitle: "Software Engineering Student",
+  nationality: {
+    "@type": "Country",
+    name: "México",
+  },
+}
 
 const { currentLocale } = Astro
 ---
@@ -14,9 +33,28 @@ const { currentLocale } = Astro
 <html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Eco pagina principal" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.origin} />
+    <meta
+      property="og:image"
+      content={image || "https://github.com/JonaJRSG/og-image.png"}
+    />
+    <!-- Basic Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={image || "https://gianmarco.xyz/og-image.png"}
+    />
+    <!-- More -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <link rel="stylesheet" href="/fonts/fonts.css">
     <link rel="icon" type="image/svg+xml" href="/LOGO.svg">
     <ViewTransitions/>
