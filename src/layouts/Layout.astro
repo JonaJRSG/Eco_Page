@@ -12,13 +12,13 @@ const image = `${Astro.url.origin}/og-image.png`;
 const schema = {
   "@context": "http://schema.org",
   "@type": "Person",
-  name: "Jonathan",
-  url: "https://jonajrsg.github.io",
+  name: "Jonathan Serna",
+  url: "https://ecojrsg.github.io",
   sameAs: [
-    "https://www.instagram.com/jonathan.rsg.serna/",
-    "https://github.com/JonaJRSG",
+    "https://www.instagram.com/eco_jrsg/",
+    "https://github.com/ecojrsg",
   ],
-  image: "https://github.com/JonaJRSG/og-image.png",
+  image: "https://github.com/ecojrsg/og-image.png",
   jobTitle: "Software Engineering Student",
   nationality: {
     "@type": "Country",
@@ -43,7 +43,7 @@ const { currentLocale } = Astro
     <meta property="og:url" content={Astro.url.origin} />
     <meta
       property="og:image"
-      content={image || "https://github.com/JonaJRSG/og-image.png"}
+      content={image || "https://ecojrsg.github.io/og-image.png"}
     />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -51,7 +51,7 @@ const { currentLocale } = Astro
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || "https://ecojrsg.github.io/og-image.png"}
     />
     <!-- More -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
