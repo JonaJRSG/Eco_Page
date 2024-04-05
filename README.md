@@ -54,7 +54,3 @@ $ npm run dev
 # Estado
 
 En desarrollo
-
-## Ultima actualizacion
-
-Última actualización: 4 de abril del 2024
