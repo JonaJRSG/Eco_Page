@@ -3,9 +3,9 @@ export const Des = {
 };
 
 export const LINKS = {
-  github: "https://github.com/JonaJRSG",
-  instagram: "https://www.instagram.com/jonathan.rsg.serna/",
-  discord: "https://discord.gg/TWn4Ma5tUt",
+  github: "https://github.com/ecojrsg",
+  instagram: "https://www.instagram.com/eco_jrsg/",
+  discord: "https://discord.gg/zGph7wce6z",
 };
 
 export const loaderAnimation = [
