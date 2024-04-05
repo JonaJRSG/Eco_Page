@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 
 import solidJs from "@astrojs/solid-js";
 
-const site = "https://JonaJRSG.github.io";
+const site = "https://ecojrsg.github.io";
 
 // https://astro.build/config
 export default defineConfig({
