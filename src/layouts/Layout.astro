@@ -1,13 +1,23 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import { Des } from '@/lib/constants';
 
-interface Props {
+type Props = {
   title: string;
-  description: string;
+  description?: string;
 }
 
 const { title, description } = Astro.props;
 const image = `${Astro.url.origin}/og-image.png`;
+
+/* 
+  Comprobamos que estamos obteniendo 'description' como prop, si no regresamos la descripcion main.
+  Pero tambien comprobamos que si regresamos como prop 'description' este exista en 'Des'
+
+  We check that we are getting 'description' as a prop; if not, we return the main description. 
+  However, we also verify that if we return 'description' as a prop, it exists in 'Des'.
+*/
+const description_meta = !description ? Des.main : !Des[description] ? Des.main : Des[description]
 
 const schema = {
   "@context": "http://schema.org",
@@ -33,7 +43,7 @@ const { currentLocale } = Astro
 <html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={description_meta} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->

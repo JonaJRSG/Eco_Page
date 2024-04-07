@@ -33,7 +33,7 @@ export default {
       fontFamily: {
         satoshi: ["satoshi", "sans"],
         "satoshi-italic": ["satoshi_italic", "sans"],
-        cabinet: ["Cabinet", "sans"],
+        cabinet: ["Cabinet Grotesk", "sans"],
       },
 
       keyframes: {
