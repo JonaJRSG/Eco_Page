@@ -37,31 +37,31 @@ const i18n = getI18N({ currentLocale })
   timeline(sequence as TimelineDefinition);
 </script>
 
-<div class=" m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]">
+<div class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:grid-rows-8 lg:grid-cols-4 lg:gap-4">
     <div class="card md:col-span-3 md:row-span-3">
         <CardMain/>
     </div>
-    <div class=" card lg:row-span-6 h-full">
+    <div class=" card lg:row-span-6 min-h-full">
         <Link href="#WIP">
             <AboutCard/>
         </Link>
     </div>
-    <div class="card lg:row-span-4 h-full">
+    <div class="card lg:row-span-4 min-h-full">
         <LetsWork/>
     </div>
-    <div class="card lg:col-span-2 lg:row-span-2 h-full">
+    <div class="card lg:col-span-2 lg:row-span-2 min-h-full">
         <Link href="#WIP">
             <SlideCard/>
         </Link>
     </div>
-    <div class="card lg:row-span-2">
+    <div class="card lg:row-span-2 min-h-full">
         <Link href="#WIP"> 
             <MyTeam/>
         </Link>
     </div>
     <div class="card">
         <Link href="#WIP">
-            <Glass hover={true} class="h-full p-6 flex justify-between items-center">
+            <Glass hover={true} class="min-h-full p-6 flex justify-between items-center">
                 <h3 class="font-satoshi font-bold text-xl">{i18n.Repo_Card.title}</h3>
                 <p class="font-satoshi font-normal opacity-50">{i18n.Repo_Card.estatus}</p>
             </Glass>
@@ -69,14 +69,14 @@ const i18n = getI18N({ currentLocale })
     </div>
     <div class="card">
         <Link href="#WIP">
-            <Glass hover={true} class="h-full p-6 flex justify-between items-center">
+            <Glass hover={true} class="min-h-full p-6 flex justify-between items-center">
                 <h3 class="font-satoshi font-bold text-xl">{i18n.Blog_Card.title}</h3>
                 <p class="font-satoshi font-normal opacity-50">{i18n.Blog_Card.estatus}</p>
             </Glass>
         </Link>
     </div>
     <div class="card">
-        <Glass hover={true} class="h-full p-3 flex flex-col">
+        <Glass hover={true} class="min-h-full p-3 flex flex-col">
             <div class="flex justify-between">
                 <h3 class="font-satoshi text-lg">{i18n.Now_Card.title}</h3>
                 <Pulse/>

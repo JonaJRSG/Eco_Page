@@ -85,5 +85,24 @@ const { currentLocale } = Astro
     scroll-behavior: smooth;
     color: white;
   }
-  code {}
+  @media (min-width: 768px) {
+    body {
+      zoom: .9;
+    }
+  }
+  @media (min-width: 1024px) {
+    body {
+      zoom: 0.9;
+    }
+  }
+  @media (min-width: 1280px) {
+    body {
+      zoom: 0.9;
+    }
+  }
+  @media (min-width: 1536px) {
+    body {
+      zoom: 1;
+    }
+  }
 </style>

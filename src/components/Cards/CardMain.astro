@@ -16,7 +16,7 @@ const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
 ---
 
-<Glass hover={true} class="grid grid-cols-4 grid-rows-3 grid-rows-3fr-1fr gap-6 min-w-16 h-full p-6 md:col-span-3 md:row-span-4 relative overflow-hidden z-10">
+<Glass hover={true} class="grid grid-cols-4 grid-rows-3 grid-rows-3fr-1fr gap-6 min-w-16 min-h-full h-min p-6 md:col-span-3 md:row-span-4 relative overflow-hidden z-10">
     <div class="col-span-4 md:col-span-3 row-span-2">
         <span class="font-satoshi font-normal opacity-50">
             {i18n.Card_Main.welcome}

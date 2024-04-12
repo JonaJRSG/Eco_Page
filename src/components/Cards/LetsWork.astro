@@ -9,7 +9,7 @@ const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
 ---
 
-<Glass hover={true} class="h-full p-6 flex flex-col">
+<Glass hover={true} class="min-h-full h-min p-6 flex flex-col">
     <h3 class="font-satoshi font-bold text-xl pb-3">
         {i18n.Lets_Work_Card.title}
     </h3>
