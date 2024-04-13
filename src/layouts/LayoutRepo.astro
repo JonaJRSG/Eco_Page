@@ -1,13 +1,18 @@
 ---
+// Layout para el repo y el blog
 import { ViewTransitions } from 'astro:transitions';
 import { Des } from '@/lib/constants';
+import Logo from "@/components/Logo.astro";
 
 type Props = {
   title: string;
   description?: string;
+  frontmatter: {
+    menu: string[][]
+  }
 }
 
-const { title, description } = Astro.props;
+const { title, description, frontmatter } = Astro.props;
 const image = `${Astro.url.origin}/og-image.png`;
 
 /* 
@@ -71,7 +76,29 @@ const { currentLocale } = Astro
     <title>{title}</title>
   </head>
   <body>
-    <slot/>
+    <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center">
+      <Logo class="w-24 opacity-80"/>
+      <h1 class="text-6xl font-cabinet font-normal">Eco Arquitectura</h1>
+      <h2 class="font-satoshi font-thin opacity-80">Una nueva forma de crear tus paginas</h2>
+  </div>
+  <div class="w-full p-20 grid place-content-center">
+      <div class="w-[50vw] grid grid-cols-4">
+          <div>
+              <ul>
+                {frontmatter.menu.map((elemento) => {
+                  return <a href=`#${elemento[1]}`>
+                      <li>
+                        {elemento[0]}
+                      </li>
+                    </a>
+                })}
+              </ul>
+          </div>
+          <div class="col-span-3">
+              <slot/>
+          </div>
+      </div>
+  </div>
   </body>
 </html>
 
@@ -85,24 +112,9 @@ const { currentLocale } = Astro
     scroll-behavior: smooth;
     color: white;
   }
-  @media (min-width: 768px) {
-    body {
-      zoom: 0.9;
-    }
-  }
-  @media (min-width: 1024px) {
-    body {
-      zoom: 0.9;
-    }
-  }
-  @media (min-width: 1280px) {
-    body {
-      zoom: 0.9;
-    }
-  }
-  @media (min-width: 1536px) {
-    body {
-      zoom: 1;
-    }
+  .cabeza {
+    background-image:url('https://survey.stackoverflow.co/legacy-assets/insights/Img/svg-icons/Survey2019/headere7f2.svg?v=055a335639c2');
+    background-size: cover;
+    background-position: center 400px;
   }
 </style>
