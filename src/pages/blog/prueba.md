@@ -4,7 +4,7 @@ title: "Eco Arquitectura"
 menu: [[Inicio, inicio], [Prueba, prueba]]
 ---
 
-# Inicio [](#Inicio)
+# Inicio
 
 Aquí tienes un párrafo de Lorem Ipsum de aproximadamente 1000 palabras:
 
@@ -22,7 +22,7 @@ Fusce sed purus magna. Nulla facilisi. Curabitur nec sollicitudin leo. Phasellus
 
 Phasellus non rhoncus ante. Nulla consectetur urna nec justo faucibus laoreet. Phasellus vehicula sapien id purus condimentum, sit amet varius lorem hendrerit. Maecenas in condimentum velit. Vivamus tincidunt lorem libero, vitae volutpat mi ullamcorper vitae. Mauris auctor nunc nec urna dictum consequat. Pellentesque quis lobortis dui. Mauris id quam dolor. Vivamus ullamcorper euismod libero, non mattis arcu. Nam auctor ultricies leo, sed congue nisl lobortis sed. Duis
 
-# Prueba [](#Prueba)
+# Prueba
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum ex a metus sollicitudin, quis condimentum enim feugiat. Proin non lorem at elit convallis posuere. Nulla facilisi. Vestibulum nec semper lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nec venenatis nisl. Sed non tortor ullamcorper, congue eros eu, tempor nulla. Phasellus vestibulum fermentum eros, ut vehicula libero pellentesque in. Ut rutrum purus non eros congue, ut lacinia urna fringilla. Duis in ex quis ex sodales elementum. Fusce consectetur varius risus nec efficitur. Aliquam erat volutpat. Maecenas commodo libero id nibh sodales faucibus. Aenean id ipsum et leo pellentesque viverra.
 
@@ -37,3 +37,8 @@ Sed fermentum ullamcorper arcu, in aliquam nulla iaculis sit amet. Nam euismod n
 Fusce sed purus magna. Nulla facilisi. Curabitur nec sollicitudin leo. Phasellus in turpis eget libero ullamcorper efficitur. Duis vel faucibus nunc, eget rhoncus mi. Curabitur id felis consequat, malesuada libero in, consectetur magna. Sed vel lobortis lectus, non vehicula nulla. Curabitur aliquet bibendum dolor vitae consectetur. Vivamus id suscipit sem. Etiam nec lacus id sem venenatis vehicula eget a risus. Integer viverra tempus quam, nec fringilla lacus ultrices et. Sed aliquet ex at neque consectetur laoreet. Phasellus eu feugiat elit. Aliquam vel magna auctor, malesuada dui ut, accumsan ex. Vivamus convallis vehicula risus, at accumsan urna ultrices ut. Donec non sodales quam. Vivamus dignissim magna sed tristique egestas. Integer non libero arcu.
 
 Phasellus non rhoncus ante. Nulla consectetur urna nec justo faucibus laoreet. Phasellus vehicula sapien id purus condimentum, sit amet varius lorem hendrerit. Maecenas in condimentum velit. Vivamus tincidunt lorem libero, vitae volutpat mi ullamcorper vitae. Mauris auctor nunc nec urna dictum consequat. Pellentesque quis lobortis dui. Mauris id quam dolor. Vivamus ullamcorper euismod libero, non mattis arcu. Nam auctor ultricies leo, sed congue nisl lobortis sed. Duis
+
+```python
+def funccion():
+    print("Hola mundo")
+```

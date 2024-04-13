@@ -1,117 +1,44 @@
 ---
 // Layout para el repo y el blog
-import { ViewTransitions } from 'astro:transitions';
-import { Des } from '@/lib/constants';
 import Logo from "@/components/Logo.astro";
+import Layout from "@/layouts/Layout.astro";
 
 type Props = {
-  title: string;
-  description?: string;
   frontmatter: {
     menu: string[][]
   }
 }
 
-const { title, description, frontmatter } = Astro.props;
-const image = `${Astro.url.origin}/og-image.png`;
-
-/* 
-  Comprobamos que estamos obteniendo 'description' como prop, si no regresamos la descripcion main.
-  Pero tambien comprobamos que si regresamos como prop 'description' este exista en 'Des'
-
-  We check that we are getting 'description' as a prop; if not, we return the main description. 
-  However, we also verify that if we return 'description' as a prop, it exists in 'Des'.
-*/
-const description_meta = !description ? Des.main : !Des[description] ? Des.main : Des[description]
-
-const schema = {
-  "@context": "http://schema.org",
-  "@type": "Person",
-  name: "Jonathan Serna",
-  url: "https://ecojrsg.github.io",
-  sameAs: [
-    "https://www.instagram.com/eco_jrsg/",
-    "https://github.com/ecojrsg",
-  ],
-  image: "https://github.com/ecojrsg/og-image.png",
-  jobTitle: "Software Engineering Student",
-  nationality: {
-    "@type": "Country",
-    name: "México",
-  },
-}
-
-const { currentLocale } = Astro
+const { frontmatter } = Astro.props;
 ---
 
-<!doctype html>
-<html lang={currentLocale}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description_meta} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.origin} />
-    <meta
-      property="og:image"
-      content={image || "https://ecojrsg.github.io/og-image.png"}
-    />
-    <!-- Basic Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={image || "https://ecojrsg.github.io/og-image.png"}
-    />
-    <!-- More -->
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <link rel="stylesheet" href="/fonts/fonts.css">
-    <link rel="icon" type="image/svg+xml" href="/LOGO.svg">
-    <ViewTransitions/>
-    <title>{title}</title>
-  </head>
-  <body>
-    <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center">
-      <Logo class="w-24 opacity-80"/>
-      <h1 class="text-6xl font-cabinet font-normal">Eco Arquitectura</h1>
-      <h2 class="font-satoshi font-thin opacity-80">Una nueva forma de crear tus paginas</h2>
+<Layout title="">
+  <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center">
+    <Logo class="w-24 opacity-80"/>
+    <h1 class="text-6xl font-cabinet font-normal">Eco Arquitectura</h1>
+    <h2 class="font-satoshi font-thin opacity-80">Una nueva forma de crear tus paginas</h2>
   </div>
   <div class="w-full p-20 grid place-content-center">
-      <div class="w-[50vw] grid grid-cols-4">
-          <div>
-              <ul>
-                {frontmatter.menu.map((elemento) => {
-                  return <a href=`#${elemento[1]}`>
-                      <li>
-                        {elemento[0]}
-                      </li>
-                    </a>
-                })}
-              </ul>
-          </div>
-          <div class="col-span-3">
-              <slot/>
-          </div>
+    <div class="w-[50vw] grid grid-cols-4">
+      <div>
+        <ul>
+          {frontmatter.menu.map((elemento) => {
+            return (
+              <a href={`#${elemento[1]}`}>
+                <li>{elemento[0]}</li>
+              </a>
+            )
+          })}
+        </ul>
       </div>
+      <div class="MD col-span-3">
+          <slot/>
+      </div>
+    </div>
   </div>
-  </body>
-</html>
+</Layout>
 
-<style is:global>
-  :root {
-    --bg-color: #242424;
-  }
-  html {
-    background-color: var(--bg-color);
-    color-scheme: dark light;
-    scroll-behavior: smooth;
-    color: white;
-  }
+<style>
   .cabeza {
     background-image:url('https://survey.stackoverflow.co/legacy-assets/insights/Img/svg-icons/Survey2019/headere7f2.svg?v=055a335639c2');
     background-size: cover;
