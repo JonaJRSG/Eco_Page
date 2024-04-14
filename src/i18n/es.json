@@ -1,4 +1,9 @@
 {
+  "LayoutBlog": {
+    "authors": "Autores",
+    "lastUpdate": "Ultima actualización"
+  },
+
   "Card_Main": {
     "welcome": "Bienvenido",
     "paragraph": {

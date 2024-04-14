@@ -9,9 +9,12 @@ import Glass from "@/components/Glass.astro"
 import Pulse from "@/components/Pulse.astro"
 
 import { getI18N } from "@/i18n/index"
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils"
 
 const { currentLocale } = Astro
+const lang = getLangFromUrl(Astro.url);
 const i18n = getI18N({ currentLocale })
+const translatePath = useTranslatedPath(lang)
 ---
 
 <script>
@@ -23,18 +26,18 @@ const i18n = getI18N({ currentLocale })
     const sequence = [
     loaderAnimation,
     [
-      cards,
-      { y: ["40%", "0%"], opacity: [0, 1] },
-      {
-        at: "-0.1",
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-      },
+        cards,
+        { y: ["40%", "0%"], opacity: [0, 1] },
+        {
+            at: "-0.1",
+            duration: 0.4,
+            delay: stagger(0.3),
+            easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+        },
     ],
-  ];
+];
 
-  timeline(sequence as TimelineDefinition);
+timeline(sequence as TimelineDefinition);
 </script>
 
 <div class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:grid-rows-8 lg:grid-cols-4 lg:gap-4">
@@ -60,7 +63,7 @@ const i18n = getI18N({ currentLocale })
         </Link>
     </div>
     <div class="card">
-        <Link href="#WIP">
+        <Link href={translatePath("/repo/Eco_Arquitectura")}>
             <Glass hover={true} class="min-h-full p-6 flex justify-between items-center">
                 <h3 class="font-satoshi font-bold text-xl">{i18n.Repo_Card.title}</h3>
                 <p class="font-satoshi font-normal opacity-50">{i18n.Repo_Card.estatus}</p>
