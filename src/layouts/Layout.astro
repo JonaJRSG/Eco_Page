@@ -5,10 +5,13 @@ import { Des } from '@/lib/constants';
 type Props = {
   title: string;
   description?: string;
+  blog?: boolean
 }
 
-const { title, description } = Astro.props;
+const { title, description, blog } = Astro.props;
 const image = `${Astro.url.origin}/og-image.png`;
+
+const itsBlog = blog == undefined ? false : true
 
 /* 
   Comprobamos que estamos obteniendo 'description' como prop, si no regresamos la descripcion main.
@@ -17,7 +20,12 @@ const image = `${Astro.url.origin}/og-image.png`;
   We check that we are getting 'description' as a prop; if not, we return the main description. 
   However, we also verify that if we return 'description' as a prop, it exists in 'Des'.
 */
-const description_meta = !description ? Des.main : !Des[description] ? Des.main : Des[description]
+let description_meta
+if (!itsBlog) {
+  description_meta = !description ? Des.main : !Des[description] ? Des.main : Des[description]
+} else {
+  description_meta = description
+}
 
 const schema = {
   "@context": "http://schema.org",

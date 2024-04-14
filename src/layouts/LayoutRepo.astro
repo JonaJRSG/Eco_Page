@@ -2,37 +2,110 @@
 // Layout para el repo y el blog
 import Logo from "@/components/Logo.astro";
 import Layout from "@/layouts/Layout.astro";
+import Prose  from "@/components/Blogs/Prose.astro";
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
 type Props = {
   frontmatter: {
-    menu: string[][]
+    menu?: string[]
+    subMenu?: string[][]
+    title: string
+    img: string
+    autores: string[]
+    lastUp: string
+    description: string
+    descriptionLay: string
   }
 }
 
 const { frontmatter } = Astro.props;
+let { menu, subMenu} = frontmatter
+let withMenu = true
+
+if(menu == undefined) {
+  menu = []
+  withMenu = false
+}
+
+if(subMenu == undefined) {
+  subMenu = menu.map(() => {
+    return []
+  })
+}
+
+const hiddenMenu = withMenu ? "" : "hidden"
+const span = withMenu ? "3" : "4"
 ---
 
-<Layout title="">
-  <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center">
+<Layout title={frontmatter.title} description={frontmatter.descriptionLay} blog={true}>
+  <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center" style=`background-image: url(${frontmatter.img});`>
     <Logo class="w-24 opacity-80"/>
-    <h1 class="text-6xl font-cabinet font-normal">Eco Arquitectura</h1>
-    <h2 class="font-satoshi font-thin opacity-80">Una nueva forma de crear tus paginas</h2>
+    <h1 class="text-6xl font-cabinet font-normal">
+      {frontmatter.title}
+    </h1>
+    <h2 class="font-satoshi font-thin opacity-80">
+      {frontmatter.description}
+    </h2>
   </div>
   <div class="w-full p-20 grid place-content-center">
-    <div class="w-[50vw] grid grid-cols-4">
-      <div>
-        <ul>
-          {frontmatter.menu.map((elemento) => {
-            return (
-              <a href={`#${elemento[1]}`}>
-                <li>{elemento[0]}</li>
-              </a>
-            )
-          })}
+    <div class='w-[50vw] grid grid-cols-4'>
+      <!-- Este es el menu -->
+      <div class=`px-5 flex flex-col gap-3 max-h-fit ${hiddenMenu}` id="menu">
+        <div class="flex  items-center gap-4 opacity-80">
+            <Logo class="w-8"/>
+            <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
+        </div>
+        <hr class="bg-white opacity-80">
+        <ul class="opacity-80">
+            {menu.map((elem, ind) => {
+                const elemC = elem.toLowerCase()
+                const elemHref = elemC.replace(/ /g, "-")
+                return (
+                  <div class="pb-1">
+                    <a href={`#${elemHref}`}>
+                      <li>{elem}</li>
+                    </a>
+                    <ul>
+                      {subMenu[ind].map((subelem) => {
+                          if(subelem[0] != undefined){
+                            const subelemC = subelem.toLowerCase()
+                            const subelemHref = subelemC.replace(/ /g, "-")
+                            return (
+                              <a href={`#${subelemHref}`}>
+                                <li class="pl-4 text-sm">{subelem}</li>
+                              </a>
+                            )
+                          }
+                      })}
+                    </ul>
+                  </div>
+                )
+            })}
         </ul>
+        <hr class="bg-white opacity-80">
+        <div class="opacity-80">
+          <div class="pb-2">
+            <p>{`${i18n.LayoutBlog.authors}:`}</p>
+            {frontmatter.autores.map((autor) => {
+              return <p class="pl-5">{`# ${autor}`}</p>
+            })}
+          </div>
+          <div>
+            <p>{`${i18n.LayoutBlog.lastUpdate}:`}</p>
+            <p class="pl-5">{frontmatter.lastUp}</p>
+          </div>
+        </div>
       </div>
-      <div class="MD col-span-3">
+      <div class=`hidden ${hiddenMenu}` id="espacio"></div>
+      <!-- Aqui el contenido -->
+      <div class=`col-span-${span}` id="contenido">
+        <Prose>
           <slot/>
+        </Prose>
       </div>
     </div>
   </div>
@@ -40,8 +113,49 @@ const { frontmatter } = Astro.props;
 
 <style>
   .cabeza {
-    background-image:url('https://survey.stackoverflow.co/legacy-assets/insights/Img/svg-icons/Survey2019/headere7f2.svg?v=055a335639c2');
     background-size: cover;
     background-position: center 400px;
   }
 </style>
+
+<script>
+  let whitMenu = document.getElementById('menu')
+  if(whitMenu != null && !whitMenu.classList.contains('hidden')) {
+    let passedContent = false;
+    window.addEventListener('scroll', function() {
+    let seccion = document.getElementById('contenido');
+    if (seccion != null) {
+        let rect = seccion.getBoundingClientRect();
+        let offset = 900; // Margen de error para el desplazamiento
+        // Verificar si la sección está visible en la ventana actual
+        if (rect.top <= (window.innerHeight - offset) && rect.bottom >= offset) {
+          let menu = document.getElementById("menu")
+          let espacio = document.getElementById('espacio')
+          if (menu != null) {
+            menu.classList.add("fixed", "top-[15px]", "w-[225px]")
+          }
+          if (espacio !=  null) {
+            espacio.classList.remove("hidden")
+          }
+          passedContent = false;
+        } else {
+          passedContent = true;
+        }
+      }
+    });
+    window.addEventListener('scroll', function() {
+      // Verificar si el usuario ha pasado del contenido y está subiendo
+      if (passedContent && window.scrollY < 900) {
+        // Realizar la acción deseada cuando se está subiendo y se ha pasado del contenido
+        let menu = document.getElementById("menu")
+        let espacio = document.getElementById('espacio')
+        if (menu != null) {
+          menu.classList.remove("fixed", "top-[15px]", "w-[250px]")
+        }
+        if (espacio !=  null) {
+          espacio.classList.add("hidden")
+        }
+      }
+    });
+  }
+</script>

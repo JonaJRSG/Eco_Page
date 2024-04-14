@@ -58,5 +58,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  // Plugin para estilizar Markdown
+  plugins: [require("@tailwindcss/typography")],
 };
