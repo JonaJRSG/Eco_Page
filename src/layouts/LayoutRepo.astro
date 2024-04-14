@@ -38,7 +38,7 @@ if(subMenu == undefined) {
 }
 
 const hiddenMenu = withMenu ? "" : "hidden"
-const span = withMenu ? "3" : "4"
+const span = withMenu ? "col-span-3" : "col-span-4"
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.descriptionLay} blog={true}>
@@ -102,7 +102,7 @@ const span = withMenu ? "3" : "4"
       </div>
       <div class=`hidden ${hiddenMenu}` id="espacio"></div>
       <!-- Aqui el contenido -->
-      <div class=`col-span-${span}` id="contenido">
+      <div class={span} id="contenido">
         <Prose>
           <slot/>
         </Prose>
@@ -118,7 +118,7 @@ const span = withMenu ? "3" : "4"
   }
 </style>
 
-<script>
+<script is:inline>
   let whitMenu = document.getElementById('menu')
   if(whitMenu != null && !whitMenu.classList.contains('hidden')) {
     let passedContent = false;
