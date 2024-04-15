@@ -37,14 +37,16 @@ if(subMenu == undefined) {
   })
 }
 
-const hiddenMenu = withMenu ? "" : "hidden"
+const hiddenMenu = withMenu ? "flex" : "hidden"
 const span = withMenu ? "col-span-3" : "col-span-4"
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.descriptionLay} blog={true}>
+  <!-- Este es el menu reponsivo-->
+  
   <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center" style=`background-image: url(${frontmatter.img});`>
     <Logo class="w-24 opacity-80"/>
-    <h1 class="text-6xl font-cabinet font-normal">
+    <h1 class="md:text-6xl font-cabinet font-normal text-2xl">
       {frontmatter.title}
     </h1>
     <h2 class="font-satoshi font-thin opacity-80">
@@ -52,9 +54,9 @@ const span = withMenu ? "col-span-3" : "col-span-4"
     </h2>
   </div>
   <div class="w-full p-20 grid place-content-center">
-    <div class='w-[50vw] grid grid-cols-4'>
+    <div class='sm:w-[90vw] sm:p-3 lg:w-[1000px] grid grid-cols-4'>
       <!-- Este es el menu -->
-      <div class=`px-5 flex flex-col gap-3 max-h-fit ${hiddenMenu}` id="menu">
+      <div class=`px-5 flex flex-col gap-3 ${hiddenMenu}` id="menu">
         <div class="flex  items-center gap-4 opacity-80">
             <Logo class="w-8"/>
             <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
@@ -102,7 +104,7 @@ const span = withMenu ? "col-span-3" : "col-span-4"
       </div>
       <div class=`hidden ${hiddenMenu}` id="espacio"></div>
       <!-- Aqui el contenido -->
-      <div class={span} id="contenido">
+      <div id="contenido">
         <Prose>
           <slot/>
         </Prose>
@@ -118,21 +120,44 @@ const span = withMenu ? "col-span-3" : "col-span-4"
   }
 </style>
 
+<script>
+  // Función para manejar el evento de redimensionamiento de la ventana
+  function handleResize() {
+    // Obtener la nueva anchura y altura de la ventana del navegador
+    let newScreenWidth = globalThis.innerWidth;
+    let seccion = document.getElementById('contenido');
+    let menu = document.getElementById('menu')
+    if(newScreenWidth <= 1024 && menu != null && seccion != null) {
+      menu.classList.add("hidden")
+      seccion.classList.add("col-span-4")
+    }
+    if(newScreenWidth >= 1024 && menu != null && seccion != null) {
+      menu.classList.remove("hidden")
+      seccion.classList.remove("col-span-4")
+      seccion.classList.add("col-span-3")
+    }
+  }
+
+  // Agregar un event listener para el evento de redimensionamiento de la ventana
+  globalThis.addEventListener("resize", handleResize);
+  globalThis.addEventListener("load", handleResize)
+</script>
+
 <script is:inline>
   let whitMenu = document.getElementById('menu')
   if(whitMenu != null && !whitMenu.classList.contains('hidden')) {
     let passedContent = false;
-    window.addEventListener('scroll', function() {
+    globalThis.addEventListener('scroll', function() {
     let seccion = document.getElementById('contenido');
     if (seccion != null) {
         let rect = seccion.getBoundingClientRect();
         let offset = 900; // Margen de error para el desplazamiento
         // Verificar si la sección está visible en la ventana actual
-        if (rect.top <= (window.innerHeight - offset) && rect.bottom >= offset) {
+        if (rect.top <= (globalThis.innerHeight - offset) && rect.bottom >= offset) {
           let menu = document.getElementById("menu")
           let espacio = document.getElementById('espacio')
           if (menu != null) {
-            menu.classList.add("fixed", "top-[15px]", "w-[225px]")
+            menu.classList.add("fixed", "top-[15px]", "w-[250px]")
           }
           if (espacio !=  null) {
             espacio.classList.remove("hidden")
@@ -143,14 +168,14 @@ const span = withMenu ? "col-span-3" : "col-span-4"
         }
       }
     });
-    window.addEventListener('scroll', function() {
+    globalThis.addEventListener('scroll', function() {
       // Verificar si el usuario ha pasado del contenido y está subiendo
       if (passedContent && window.scrollY < 900) {
         // Realizar la acción deseada cuando se está subiendo y se ha pasado del contenido
         let menu = document.getElementById("menu")
         let espacio = document.getElementById('espacio')
         if (menu != null) {
-          menu.classList.remove("fixed", "top-[15px]", "w-[250px]")
+          menu.classList.remove("fixed", "top-[15px]", "w-[275px]")
         }
         if (espacio !=  null) {
           espacio.classList.add("hidden")
