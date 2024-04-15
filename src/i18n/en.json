@@ -1,7 +1,8 @@
 {
   "LayoutBlog": {
     "authors": "Authors",
-    "lastUpdate": "Last update"
+    "lastUpdate": "Last update",
+    "menu": "Menú"
   },
 
   "Card_Main": {

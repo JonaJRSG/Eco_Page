@@ -19,7 +19,7 @@ Sin embargo, hemos observado que la aplicación fragmentada de estas metodologí
 
 ---
 
-# Introduccion
+# Introducción
 
 ## Problema
 
@@ -27,32 +27,32 @@ Durante la clase de "Arquitectura de Aplicaciones", se nos solicitó documentar 
 
 Además, enfrentamos otro gran obstáculo que es común en la universidad y en la educación en general: la escasa documentación que realizan la mayoría de los estudiantes sobre sus proyectos. Este problema se origina, en parte, por una cultura deficiente en este aspecto. Además, muchos estudiantes carecen del conocimiento necesario sobre herramientas que faciliten la creación de documentación accesible y duradera a lo largo del tiempo.
 
-## Propuesta de solucion
+## Propuesta de solución
 
 Propongo desarrollar una plantilla de página web estática basada en la metodología **Eco Arquitectura**, diseñada específicamente para satisfacer las necesidades de la mayoría de los estudiantes de Ingeniería de Software. Esta plantilla ofrecerá una solución versátil que permitirá a los alumnos crear fácilmente sus propias páginas web estáticas, las cuales podrán ser publicadas en una variedad de servicios de alojamiento gratuito. Además de servir como un blog personalizado, esta plataforma también funcionará como un repositorio centralizado donde los estudiantes podrán documentar y compartir sus proyectos más relevantes con tan solo conocimientos básicos en la materia.
 
 ---
 
-# Marco teorico
+# Marco teórico
 
 ## Astro
 
-Toda esta idea nace del desarrollo de una pagina web con una tecnologia realativamente nueva con la cual pude trabajar para generar paginas estaticas, sin embargo, al leer la documentacion me di cuenta de que esta tecnologia nos provee de herramientas solidas para poder generar blog y repositorios de manera bastante facil. Esta tecnoliga se llama [Astro](https://astro.build). Este framwork nos permite crear paginas estaticas de manera facil y nos otorga muchas herramientas para que nosotros podamos implementar sistemas de archivos y de renderisado de archivos MarkDown o JSON los cuales son archivos con una estructura basada en lenguajes de etiquetado faciles de leer y sobre todo faciles de aprender, esto nos permite crear una plantilla que sea capaz de personalizarse y de agregar nuevas publicaciones de manera facil.
+Toda esta idea nace del desarrollo de una página web con una tecnología relativamente nueva con la cual pude trabajar para generar páginas estáticas, sin embargo, al leer la documentación me di cuenta de que esta tecnología nos provee de herramientas sólidas para poder generar blogs y repositorios de manera bastante fácil. Esta tecnología se llama [Astro](https://astro.build). Este framework nos permite crear páginas estáticas de manera fácil y nos otorga muchas herramientas para que nosotros podamos implementar sistemas de archivos y de renderizado de archivos Markdown o JSON, los cuales son archivos con una estructura basada en lenguajes de etiquetado fáciles de leer y, sobre todo, fáciles de aprender. Esto nos permite crear una plantilla que sea capaz de personalizarse y de agregar nuevas publicaciones de manera fácil.
 
-Ademas de esto [Astro](https://astro.build) es extremadamente facil de comprender y ocupar por lo que tambien damos la oportunidad a los alumnos de que puedan hacer cambios para personalizar su pagina, o hacer cambios que mejoren la plantilla a travez de un PR (Pull Request), sumado a eso su escalabilidad tambien es increible, pudiendo integrar componentes de otras librerias o frameworks como [React](https://es.react.dev), [Svelt](https://svelte.dev), [Vue](https://vuejs.org), entre otros junto con la posibilidad de volver la pagina una aplicacion web.
+Además de esto, [Astro](https://astro.build) es extremadamente fácil de comprender y ocupar, por lo que también damos la oportunidad a los alumnos de que puedan hacer cambios para personalizar su página, o hacer cambios que mejoren la plantilla a través de un PR (Pull Request), sumado a eso su escalabilidad también es increíble, pudiendo integrar componentes de otras librerías o frameworks como [React](https://es.react.dev), [Svelt](https://svelte.dev), [Vue](https://vuejs.org), entre otros, junto con la posibilidad de volver la página una aplicación web.
 
-Esto y muchas herramientas mas son facilitadas por este framewok como la optimizacion, [despliegue](#introduccion) del cual hablaremos en el siguiente punto y mas.
+Esto y muchas herramientas más son facilitadas por este framework como la optimización, [despliegue](#introducción) del cual hablaremos en el siguiente punto y más.
 
 ## Metodologías
 
-Para el desarrollo de esta plantilla ocuparemos crearemos nuestra propia metodologías: **Eco Arquitectura**. Pero esta metodologia se basara en algunas otras metodologias tanto robustas como rapidas estas metodologias son:
+Para el desarrollo de esta plantilla ocuparemos crearemos nuestra propia metodología: **Eco Arquitectura**. Pero esta metodología se basará en algunas otras metodologías tanto robustas como rápidas. Estas metodologías son:
 
 1. CI/CD
 2. Scrum
 3. RUP
 4. CMMI
 
-Estas metodologis son las bases para nuestra metodologia, tomares lo mejor de cada una de ellas para poder desarrollar la nuesta
+Estas metodologías son las bases para nuestra metodología, tomaremos lo mejor de cada una de ellas para poder desarrollar la nuestra.
 
 ---
 

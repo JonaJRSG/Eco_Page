@@ -54,7 +54,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   </div>
   <div class="w-1/2 fixed z-10 bg-neutral-800 h-screen flex flex-col p-3 -translate-x-full transition-all" id="menu-des">
     <div class="py-5 flex items-center justify-between opacity-90 pr-12 pl-2">
-      <h1 class="font-satoshi font-bold text-2xl">Menú</h1>
+      <h1 class="font-satoshi font-bold text-2xl">{i18n.LayoutBlog.menu}</h1>
       <Logo class="w-10"/>
     </div>
     <hr class="opacity-80">
@@ -182,9 +182,6 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   .cabeza {
     background-size: cover;
     background-position: center 400px;
-  }
-  .transformado {
-    transform: translateX(0%); /* Transformación en el eje X del 100% */
   }
 </style>
 <script is:inline data-astro-rerun>
