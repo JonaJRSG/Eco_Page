@@ -25,10 +25,10 @@ import WIP from "@/components/WIP.astro";
         <IndexGrid/>
       </div>
     </PattternBG>
-    <div id="WIP" class="flex justify-center pt-56">
+    <div id="WIP" class="flex justify-center pt-20">
       <WIP/>
     </div>
-    <div class="h-[400px]">
+    <div class="h-[1000px]">
 
     </div>
   </main>
@@ -45,16 +45,19 @@ import WIP from "@/components/WIP.astro";
 <script is:inline data-astro-rerun>
   var navbar = document.getElementById("navbar")
   var lang = document.getElementById("lang")
+  let offsetPercentage = 70;
+  let windowHeight = window.innerHeight;
+  let offset = (windowHeight * offsetPercentage) / 100;
 
   window.addEventListener('scroll', function() {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
 
-    if(currentScroll >= 700) {
+    if(currentScroll >= offset) {
       navbar?.classList.remove("hidden")
       lang?.classList.add("hidden")
     }
 
-    if(currentScroll < 700) {
+    if(currentScroll <= offset + 100) {
       navbar?.classList.add("hidden")
       lang?.classList.remove("hidden")
     }

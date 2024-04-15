@@ -3,6 +3,8 @@
 import Logo from "@/components/Logo.astro";
 import Layout from "@/layouts/Layout.astro";
 import Prose  from "@/components/Blogs/Prose.astro";
+import Hmenu from "@/components/icons/Hmenu.astro"
+import BackArrow from "@/components/icons/BackArrow.astro";
 
 import { getI18N } from "@/i18n/index"
 
@@ -38,13 +40,73 @@ if(subMenu == undefined) {
 }
 
 const hiddenMenu = withMenu ? "flex" : "hidden"
-const span = withMenu ? "col-span-3" : "col-span-4"
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.descriptionLay} blog={true}>
   <!-- Este es el menu reponsivo-->
-  
-  <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center" style=`background-image: url(${frontmatter.img});`>
+  <div class="w-full h-16 flex fixed justify-between items-center z-10 p-3 lg:hidden" id="responsive-menu">
+    <a href="/">
+      <Logo class="w-7"/>
+    </a>
+    <button id="btn-hmenu">
+      <Hmenu/>
+    </button>
+  </div>
+  <div class="w-1/2 fixed z-10 bg-neutral-800 h-screen flex flex-col p-3 -translate-x-full transition-all" id="menu-des">
+    <div class="py-5 flex items-center justify-between opacity-90 pr-12 pl-2">
+      <h1 class="font-satoshi font-bold text-2xl">Menú</h1>
+      <Logo class="w-10"/>
+    </div>
+    <hr class="opacity-80">
+    <ul class="opacity-90 p-2 overflow-auto">
+      {menu.map((elem, ind) => {
+          const elemC = elem.toLowerCase()
+          const elemHref = elemC.replace(/ /g, "-")
+          return (
+            <div class="pb-1">
+              <a href={`#${elemHref}`} class="btn-inter">
+                <li>{elem}</li>
+              </a>
+              <ul>
+                {subMenu[ind].map((subelem) => {
+                    if(subelem[0] != undefined){
+                      const subelemC = subelem.toLowerCase()
+                      const subelemHref = subelemC.replace(/ /g, "-")
+                      return (
+                        <a href={`#${subelemHref}`} class="btn-inter">
+                          <li class="pl-4 text-sm">{subelem}</li>
+                        </a>
+                      )
+                    }
+                })}
+              </ul>
+            </div>
+          )
+      })}
+    </ul>
+    <hr class="bg-white opacity-80">
+    <div class="opacity-90 p-2">
+      <div class="pb-2">
+        <p>{`${i18n.LayoutBlog.authors}:`}</p>
+        {frontmatter.autores.map((autor) => {
+          return <p class="pl-5">{`# ${autor}`}</p>
+        })}
+      </div>
+      <div>
+        <p>{`${i18n.LayoutBlog.lastUpdate}:`}</p>
+        <p class="pl-5">{frontmatter.lastUp}</p>
+      </div>
+    </div>
+  </div>
+  <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center" style=`background-image: url(${frontmatter.img}); relative`>
+    <a href="/">
+      <button class="bg-neutral-800 rounded-md pr-4 pl-2 py-2 absolute top-5 left-5 shadow-lg ring-2 ring-Eco-60 hover:bg-Eco-20 -active:translate-x-1 active:translate-y-1 transition-colors lg:flex justify-center gap-1 hidden">
+        <span>
+          <BackArrow/>
+        </span>
+        Regresar
+      </button>
+    </a>
     <Logo class="w-24 opacity-80"/>
     <h1 class="md:text-6xl font-cabinet font-normal text-2xl">
       {frontmatter.title}
@@ -56,13 +118,13 @@ const span = withMenu ? "col-span-3" : "col-span-4"
   <div class="w-full p-10 grid place-content-center">
     <div class='sm:w-[90vw] sm:p-3 lg:w-[1000px] grid grid-cols-4'>
       <!-- Este es el menu -->
-      <div class=`px-5 flex flex-col gap-3 ${hiddenMenu}` id="menu">
+      <div class=`px-5 lg:flex flex-col gap-3 ${hiddenMenu} sm:hidden max-h-screen` id="menu">
         <div class="flex  items-center gap-4 opacity-80">
             <Logo class="w-8"/>
             <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
         </div>
         <hr class="bg-white opacity-80">
-        <ul class="opacity-80">
+        <ul class="opacity-80 overflow-auto">
             {menu.map((elem, ind) => {
                 const elemC = elem.toLowerCase()
                 const elemHref = elemC.replace(/ /g, "-")
@@ -90,7 +152,7 @@ const span = withMenu ? "col-span-3" : "col-span-4"
         </ul>
         <hr class="bg-white opacity-80">
         <div class="opacity-80">
-          <div class="pb-2">
+          <div class="pb-3">
             <p>{`${i18n.LayoutBlog.authors}:`}</p>
             {frontmatter.autores.map((autor) => {
               return <p class="pl-5">{`# ${autor}`}</p>
@@ -104,7 +166,7 @@ const span = withMenu ? "col-span-3" : "col-span-4"
       </div>
       <div class=`hidden ${hiddenMenu}` id="espacio"></div>
       <!-- Aqui el contenido -->
-      <div id="contenido">
+      <div id="contenido" class="lg:col-span-3 col-span-4">
         <Prose>
           <slot/>
         </Prose>
@@ -114,12 +176,17 @@ const span = withMenu ? "col-span-3" : "col-span-4"
 </Layout>
 
 <style>
+  html {
+    scroll-padding-top: 80px;
+  }
   .cabeza {
     background-size: cover;
     background-position: center 400px;
   }
+  .transformado {
+    transform: translateX(0%); /* Transformación en el eje X del 100% */
+  }
 </style>
-
 <script>
   // Función para manejar el evento de redimensionamiento de la ventana
   function handleResize() {
@@ -127,31 +194,35 @@ const span = withMenu ? "col-span-3" : "col-span-4"
     let newScreenWidth = globalThis.innerWidth;
     let seccion = document.getElementById('contenido');
     let menu = document.getElementById('menu')
-    if(newScreenWidth <= 1024 && menu != null && seccion != null) {
+    let menurespo = document.getElementById("responsive-menu")
+    if(newScreenWidth <= 1024 && menu != null && seccion != null && menurespo != null) {
       menu.classList.add("hidden")
       seccion.classList.add("col-span-4")
+      seccion.style.scrollMarginTop = "500px"
+      menurespo.classList.remove("hidden")
     }
-    if(newScreenWidth >= 1024 && menu != null && seccion != null) {
+    if(newScreenWidth >= 1024 && menu != null && seccion != null && menurespo != null) {
       menu.classList.remove("hidden")
       seccion.classList.remove("col-span-4")
       seccion.classList.add("col-span-3")
+      menurespo.classList.add("flex")
     }
   }
-
   // Agregar un event listener para el evento de redimensionamiento de la ventana
   globalThis.addEventListener("resize", handleResize);
   globalThis.addEventListener("load", handleResize)
 </script>
-
-<script is:inline>
+<script>
   let whitMenu = document.getElementById('menu')
   if(whitMenu != null && !whitMenu.classList.contains('hidden')) {
     let passedContent = false;
     globalThis.addEventListener('scroll', function() {
     let seccion = document.getElementById('contenido');
     if (seccion != null) {
-        let rect = seccion.getBoundingClientRect();
-        let offset = 900; // Margen de error para el desplazamiento
+        let rect = seccion.getBoundingClientRect(); 
+        let offsetPercentage = 100;
+        let windowHeight = window.innerHeight;
+        let offset = (windowHeight * offsetPercentage) / 100; // Margen de error para el desplazamiento
         // Verificar si la sección está visible en la ventana actual
         if (rect.top <= (globalThis.innerHeight - offset) && rect.bottom >= offset) {
           let menu = document.getElementById("menu")
@@ -183,4 +254,56 @@ const span = withMenu ? "col-span-3" : "col-span-4"
       }
     });
   }
+</script>
+<script>
+  function addResponsiveMenu() {
+    let seccion = document.getElementById('contenido');
+    if (seccion != null) {
+      let rect = seccion.getBoundingClientRect();
+      let offsetPercentage = 85;
+      let windowHeight = window.innerHeight;
+      let offset = (windowHeight * offsetPercentage) / 100; // Margen de error para el desplazamiento
+      // Verificar si la sección está visible en la ventana actual
+      if (rect.top <= (globalThis.innerHeight - offset) && rect.bottom >= offset) {
+        let responsive = document.getElementById("responsive-menu")
+        if (responsive != null) {
+          responsive.classList.add("bg-neutral-800")
+        }
+        passedContent = false;
+      } else {
+        passedContent = true;
+      }
+    }
+  }
+  function removeReponsiveMenu() {
+    // Verificar si el usuario ha pasado del contenido y está subiendo
+    if (passedContent && window.scrollY < 600) {
+      // Realizar la acción deseada cuando se está subiendo y se ha pasado del contenido
+      let responsive = document.getElementById("responsive-menu")
+      if (responsive != null) {
+        responsive.classList.remove("bg-neutral-800")
+      }
+    }
+  }
+  let passedContent = false;
+  globalThis.addEventListener('scroll', addResponsiveMenu);
+  globalThis.addEventListener('scroll', removeReponsiveMenu);
+</script>
+<script is:inline data-astro-rerun>
+  var btnmenu = document.getElementById("btn-hmenu")
+  var menudes = document.getElementById("menu-des")
+  var btnsinter = document.querySelectorAll(".btn-inter")
+
+  function toggleMenu() {
+    if(btnmenu != null && menudes != null) {
+      menudes.classList.toggle("-translate-x-0")
+    }
+  }
+
+  btnmenu?.addEventListener("click", toggleMenu)
+  btnsinter.forEach(element => {
+    if (element != null) {
+      element.addEventListener("click", toggleMenu)
+    }
+  });
 </script>
