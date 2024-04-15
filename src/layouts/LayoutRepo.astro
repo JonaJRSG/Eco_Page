@@ -118,7 +118,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   <div class="w-full p-10 grid place-content-center">
     <div class='sm:w-[90vw] sm:p-3 lg:w-[1000px] grid grid-cols-4'>
       <!-- Este es el menu -->
-      <div class=`px-5 lg:flex flex-col gap-3 ${hiddenMenu} sm:hidden max-h-screen` id="menu">
+      <div class=`px-5 lg:flex flex-col gap-3 ${hiddenMenu} cero:hidden max-h-screen` id="menu">
         <div class="flex  items-center gap-4 opacity-80">
             <Logo class="w-8"/>
             <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
@@ -187,14 +187,14 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
     transform: translateX(0%); /* Transformación en el eje X del 100% */
   }
 </style>
-<script>
+<script is:inline data-astro-rerun>
   // Función para manejar el evento de redimensionamiento de la ventana
   function handleResize() {
     // Obtener la nueva anchura y altura de la ventana del navegador
-    let newScreenWidth = globalThis.innerWidth;
-    let seccion = document.getElementById('contenido');
-    let menu = document.getElementById('menu')
-    let menurespo = document.getElementById("responsive-menu")
+    var newScreenWidth = globalThis.innerWidth;
+    var seccion = document.getElementById('contenido');
+    var menu = document.getElementById('menu')
+    var menurespo = document.getElementById("responsive-menu")
     if(newScreenWidth <= 1024 && menu != null && seccion != null && menurespo != null) {
       menu.classList.add("hidden")
       seccion.classList.add("col-span-4")
@@ -211,6 +211,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   // Agregar un event listener para el evento de redimensionamiento de la ventana
   globalThis.addEventListener("resize", handleResize);
   globalThis.addEventListener("load", handleResize)
+  globalThis.addEventListener("DOMContentLoaded",handleResize)
 </script>
 <script>
   let whitMenu = document.getElementById('menu')

@@ -56,6 +56,10 @@ export default {
       width: {
         "calc-slider": "calc(100px * 35)",
       },
+
+      screens: {
+        cero: "0px",
+      },
     },
   },
   // Plugin para estilizar Markdown
