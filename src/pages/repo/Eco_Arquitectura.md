@@ -7,11 +7,11 @@ descriptionLay: "Una nueva forma de crear plantillas o blogs que nos permitan la
 autores: ["Eco_Jrsg"]
 lastUp: "14 / 04 / 2024"
 
-menu: ["Visión General", "Introduccion", "Marco Teorico"]
-subMenu: [[], ["Problema", "Propuesta de Solucion"], ["Astro", "Metodologías"]]
+menu: ["Visión General", "Introducción", "Marco Teórico"]
+subMenu: [[], ["Problema", "Propuesta de Solución"], ["Astro", "Metodologías"]]
 ---
 
-# Visión general
+# Visión General
 
 En el transcurso de nuestra carrera como ingenieros de software, hemos explorado diversas metodologías para el desarrollo de sistemas, abarcando todo el ciclo de vida del software. Esta exploración nos ha brindado un conjunto diverso de habilidades que nos capacitan para implementar estrategias, procesos y mejoras en el desarrollo de una amplia gama de proyectos, otorgando valor a nuestro trabajo.
 
@@ -27,13 +27,13 @@ Durante la clase de "Arquitectura de Aplicaciones", se nos solicitó documentar 
 
 Además, enfrentamos otro gran obstáculo que es común en la universidad y en la educación en general: la escasa documentación que realizan la mayoría de los estudiantes sobre sus proyectos. Este problema se origina, en parte, por una cultura deficiente en este aspecto. Además, muchos estudiantes carecen del conocimiento necesario sobre herramientas que faciliten la creación de documentación accesible y duradera a lo largo del tiempo.
 
-## Propuesta de solución
+## Propuesta de Solución
 
 Propongo desarrollar una plantilla de página web estática basada en la metodología **Eco Arquitectura**, diseñada específicamente para satisfacer las necesidades de la mayoría de los estudiantes de Ingeniería de Software. Esta plantilla ofrecerá una solución versátil que permitirá a los alumnos crear fácilmente sus propias páginas web estáticas, las cuales podrán ser publicadas en una variedad de servicios de alojamiento gratuito. Además de servir como un blog personalizado, esta plataforma también funcionará como un repositorio centralizado donde los estudiantes podrán documentar y compartir sus proyectos más relevantes con tan solo conocimientos básicos en la materia.
 
 ---
 
-# Marco teórico
+# Marco Teórico
 
 ## Astro
 
@@ -41,7 +41,7 @@ Toda esta idea nace del desarrollo de una página web con una tecnología relati
 
 Además de esto, [Astro](https://astro.build) es extremadamente fácil de comprender y ocupar, por lo que también damos la oportunidad a los alumnos de que puedan hacer cambios para personalizar su página, o hacer cambios que mejoren la plantilla a través de un PR (Pull Request), sumado a eso su escalabilidad también es increíble, pudiendo integrar componentes de otras librerías o frameworks como [React](https://es.react.dev), [Svelt](https://svelte.dev), [Vue](https://vuejs.org), entre otros, junto con la posibilidad de volver la página una aplicación web.
 
-Esto y muchas herramientas más son facilitadas por este framework como la optimización, [despliegue](#introducción) del cual hablaremos en el siguiente punto y más.
+Esto y muchas herramientas más son facilitadas por este framework como la optimización, [despliegue](#metodologías) del cual hablaremos en el siguiente punto y más.
 
 ## Metodologías
 

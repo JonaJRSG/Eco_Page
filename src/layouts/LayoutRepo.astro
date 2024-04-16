@@ -52,7 +52,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
       <Hmenu/>
     </button>
   </div>
-  <div class="w-1/2 fixed z-10 bg-neutral-800 h-screen flex flex-col p-3 -translate-x-full transition-all" id="menu-des">
+  <div class="w-1/2 fixed z-10 bg-neutral-800 h-full flex flex-col p-3 -translate-x-full transition-all" id="menu-des">
     <div class="py-5 flex items-center justify-between opacity-90 pr-12 pl-2">
       <h1 class="font-satoshi font-bold text-2xl">{i18n.LayoutBlog.menu}</h1>
       <Logo class="w-10"/>
@@ -64,18 +64,22 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
           const elemHref = elemC.replace(/ /g, "-")
           return (
             <div class="pb-1">
-              <a href={`#${elemHref}`} class="btn-inter">
-                <li>{elem}</li>
-              </a>
+              <li class="hover:text-Eco-100" onclick="toggleMenu()">
+                <a href={`#${elemHref}`}>
+                  {elem}
+                </a>
+              </li>
               <ul>
                 {subMenu[ind].map((subelem) => {
                     if(subelem[0] != undefined){
                       const subelemC = subelem.toLowerCase()
                       const subelemHref = subelemC.replace(/ /g, "-")
                       return (
-                        <a href={`#${subelemHref}`} class="btn-inter">
-                          <li class="pl-4 text-sm">{subelem}</li>
-                        </a>
+                        <li class="pl-4 text-sm hover:text-Eco-100" onclick="toggleMenu()">
+                          <a href={`#${subelemHref}`}>
+                            {subelem}
+                          </a>
+                        </li>
                       )
                     }
                 })}
@@ -116,32 +120,36 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
     </h2>
   </div>
   <div class="w-full p-10 grid place-content-center">
-    <div class='sm:w-[90vw] sm:p-3 lg:w-[1000px] grid grid-cols-4'>
+    <div class='sm:w-[90vw] lg:w-[1000px] grid grid-cols-4'>
       <!-- Este es el menu -->
       <div class=`px-5 lg:flex flex-col gap-3 ${hiddenMenu} cero:hidden max-h-screen` id="menu">
-        <div class="flex  items-center gap-4 opacity-80">
-            <Logo class="w-8"/>
+        <div class="flex justify-between items-center gap-4 opacity-80">
             <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
+            <Logo class="w-8"/>
         </div>
         <hr class="bg-white opacity-80">
-        <ul class="opacity-80 overflow-auto">
+        <ul class="opacity-80 overflow-auto list-disc list-inside">
             {menu.map((elem, ind) => {
                 const elemC = elem.toLowerCase()
                 const elemHref = elemC.replace(/ /g, "-")
                 return (
                   <div class="pb-1">
-                    <a href={`#${elemHref}`}>
-                      <li>{elem}</li>
-                    </a>
-                    <ul>
+                    <li class="hover:text-Eco-100">
+                      <a href={`#${elemHref}`}>
+                        {elem}
+                      </a>
+                    </li>
+                    <ul class="list-none list-inside">
                       {subMenu[ind].map((subelem) => {
                           if(subelem[0] != undefined){
                             const subelemC = subelem.toLowerCase()
                             const subelemHref = subelemC.replace(/ /g, "-")
                             return (
-                              <a href={`#${subelemHref}`}>
-                                <li class="pl-4 text-sm">{subelem}</li>
-                              </a>
+                              <li class="pl-8 text-sm hover:text-Eco-100">
+                                <a href={`#${subelemHref}`}>
+                                  {subelem}
+                                </a>
+                              </li>
                             )
                           }
                       })}
