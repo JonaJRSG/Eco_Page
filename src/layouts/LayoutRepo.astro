@@ -184,14 +184,23 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
 </Layout>
 
 <style>
+  /* Estilos para el layout de la página de blog */
   html {
-    scroll-padding-top: 80px;
+    scroll-padding-top: 80px; /* Para pantallas menores a 1024px */
   }
+  @media only screen and (min-width: 1024px) {
+    html {
+      scroll-padding-top: 10px; /* Para pantallas de 1024px en adelante */
+    }
+  }
+
+  /* Estilos para el menú reponsivo */
   .cabeza {
     background-size: cover;
     background-position: center 400px;
   }
 </style>
+
 <script is:inline data-astro-rerun>
   // Función para manejar el evento de redimensionamiento de la ventana
   function handleResize() {
@@ -218,6 +227,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   globalThis.addEventListener("load", handleResize)
   globalThis.addEventListener("DOMContentLoaded",handleResize)
 </script>
+
 <script>
   let whitMenu = document.getElementById('menu')
   if(whitMenu != null && !whitMenu.classList.contains('hidden')) {
@@ -261,6 +271,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
     });
   }
 </script>
+
 <script>
   function addResponsiveMenu() {
     let seccion = document.getElementById('contenido');
@@ -295,6 +306,7 @@ const hiddenMenu = withMenu ? "flex" : "hidden"
   globalThis.addEventListener('scroll', addResponsiveMenu);
   globalThis.addEventListener('scroll', removeReponsiveMenu);
 </script>
+
 <script is:inline data-astro-rerun>
   var btnmenu = document.getElementById("btn-hmenu")
   var menudes = document.getElementById("menu-des")
