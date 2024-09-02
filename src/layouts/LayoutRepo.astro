@@ -3,8 +3,9 @@
 import Logo from "@/components/Logo.astro";
 import Layout from "@/layouts/Layout.astro";
 import Prose  from "@/components/Blogs/Prose.astro";
-import Hmenu from "@/components/icons/Hmenu.astro"
+import Menu from "@/components/Blogs/Menu.astro";
 import BackArrow from "@/components/icons/BackArrow.astro";
+import ResponsiveMenu from "@/components/Blogs/ResponsiveMenu.astro";
 
 import { getI18N } from "@/i18n/index"
 
@@ -25,7 +26,8 @@ type Props = {
 }
 
 const { frontmatter } = Astro.props;
-let { menu, subMenu} = frontmatter
+let { menu, subMenu } = frontmatter
+
 let withMenu = true
 
 if(menu == undefined) {
@@ -33,148 +35,38 @@ if(menu == undefined) {
   withMenu = false
 }
 
-if(subMenu == undefined) {
-  subMenu = menu.map(() => {
-    return []
-  })
-}
-
 const hiddenMenu = withMenu ? "flex" : "hidden"
+const colNum = withMenu ? 3 : 4
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.descriptionLay} blog={true}>
   <!-- Este es el menu reponsivo-->
-  <div class="w-full h-16 flex fixed justify-between items-center z-10 p-3 lg:hidden" id="responsive-menu">
-    <a href="/">
-      <Logo class="w-7"/>
-    </a>
-    <button id="btn-hmenu">
-      <Hmenu/>
-    </button>
-  </div>
-  <div class="w-1/2 fixed z-10 bg-neutral-800 h-full flex flex-col p-3 -translate-x-full transition-all" id="menu-des">
-    <div class="py-5 flex items-center justify-between opacity-90 pr-12 pl-2">
-      <h1 class="font-satoshi font-bold text-2xl">{i18n.LayoutBlog.menu}</h1>
-      <Logo class="w-10"/>
-    </div>
-    <hr class="opacity-80">
-    <ul class="opacity-90 p-2 overflow-auto">
-      {menu.map((elem, ind) => {
-          const elemC = elem.toLowerCase()
-          const elemHref = elemC.replace(/ /g, "-")
-          return (
-            <div class="pb-1">
-              <li class="hover:text-Eco-100" onclick="toggleMenu()">
-                <a href={`#${elemHref}`}>
-                  {elem}
-                </a>
-              </li>
-              <ul>
-                {subMenu[ind].map((subelem) => {
-                    if(subelem[0] != undefined){
-                      const subelemC = subelem.toLowerCase()
-                      const subelemHref = subelemC.replace(/ /g, "-")
-                      return (
-                        <li class="pl-4 text-sm hover:text-Eco-100" onclick="toggleMenu()">
-                          <a href={`#${subelemHref}`}>
-                            {subelem}
-                          </a>
-                        </li>
-                      )
-                    }
-                })}
-              </ul>
-            </div>
-          )
-      })}
-    </ul>
-    <hr class="bg-white opacity-80">
-    <div class="opacity-90 p-2">
-      <div class="pb-2">
-        <p>{`${i18n.LayoutBlog.authors}:`}</p>
-        {frontmatter.autores.map((autor) => {
-          return <p class="pl-5">{`# ${autor}`}</p>
-        })}
-      </div>
-      <div>
-        <p>{`${i18n.LayoutBlog.lastUpdate}:`}</p>
-        <p class="pl-5">{frontmatter.lastUp}</p>
-      </div>
-    </div>
-  </div>
+  <ResponsiveMenu autores={frontmatter.autores} lastUp={frontmatter.lastUp} menu={menu} subMenu={subMenu} i18n={i18n}/>
+  <!-- Aqui acaba el menu responsivo -->
   <div class="cabeza h-[400px] flex flex-col gap-6 items-center justify-center" style=`background-image: url(${frontmatter.img}); relative`>
     <a href="/">
-      <button class="bg-neutral-800 rounded-md pr-4 pl-2 py-2 absolute top-5 left-5 shadow-lg ring-2 ring-Eco-60 hover:bg-Eco-20 -active:translate-x-1 active:translate-y-1 transition-colors lg:flex justify-center gap-1 hidden">
-        <span>
-          <BackArrow/>
-        </span>
-        Regresar
-      </button>
+        <button class="bg-neutral-800 rounded-md pr-4 pl-2 py-2 absolute top-5 left-5 shadow-lg ring-2 ring-Eco-60 hover:bg-Eco-20 -active:translate-x-1 active:translate-y-1 transition-colors lg:flex justify-center gap-1 hidden">
+            <span>
+                <BackArrow/>
+            </span>
+            Regresar
+        </button>
     </a>
     <Logo class="w-24 opacity-80"/>
     <h1 class="md:text-6xl font-cabinet font-normal text-2xl">
-      {frontmatter.title}
+        {frontmatter.title}
     </h1>
     <h2 class="font-satoshi font-thin opacity-80">
-      {frontmatter.description}
+        {frontmatter.description}
     </h2>
   </div>
   <div class="w-full p-10 grid place-content-center">
     <div class='sm:w-[90vw] lg:w-[1000px] grid grid-cols-4'>
       <!-- Este es el menu -->
-      <div class=`px-5 lg:flex flex-col gap-3 ${hiddenMenu} cero:hidden max-h-screen` id="menu">
-        <div class="flex justify-between items-center gap-4 opacity-80">
-            <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
-            <Logo class="w-8"/>
-        </div>
-        <hr class="bg-white opacity-80">
-        <ul class="opacity-80 overflow-auto list-disc list-inside">
-            {menu.map((elem, ind) => {
-                const elemC = elem.toLowerCase()
-                const elemHref = elemC.replace(/ /g, "-")
-                return (
-                  <div class="pb-1">
-                    <li class="hover:text-Eco-100">
-                      <a href={`#${elemHref}`}>
-                        {elem}
-                      </a>
-                    </li>
-                    <ul class="list-none list-inside">
-                      {subMenu[ind].map((subelem) => {
-                          if(subelem[0] != undefined){
-                            const subelemC = subelem.toLowerCase()
-                            const subelemHref = subelemC.replace(/ /g, "-")
-                            return (
-                              <li class="pl-8 text-sm hover:text-Eco-100">
-                                <a href={`#${subelemHref}`}>
-                                  {subelem}
-                                </a>
-                              </li>
-                            )
-                          }
-                      })}
-                    </ul>
-                  </div>
-                )
-            })}
-        </ul>
-        <hr class="bg-white opacity-80">
-        <div class="opacity-80">
-          <div class="pb-3">
-            <p>{`${i18n.LayoutBlog.authors}:`}</p>
-            {frontmatter.autores.map((autor) => {
-              return <p class="pl-5">{`# ${autor}`}</p>
-            })}
-          </div>
-          <div>
-            <p>{`${i18n.LayoutBlog.lastUpdate}:`}</p>
-            <p class="pl-5">{frontmatter.lastUp}</p>
-          </div>
-        </div>
-      </div>
+      <Menu menu={menu} subMenu={subMenu} autores={frontmatter.autores} lastUp={frontmatter.lastUp} i18n={i18n} hiddenMenu={hiddenMenu}/>
       <div class=`hidden ${hiddenMenu}` id="espacio"></div>
       <!-- Aqui el contenido -->
-      <div id="contenido" class="lg:col-span-3 col-span-4">
+      <div id="contenido" class=`lg:col-span-${colNum} col-span-4`>
         <Prose>
           <slot/>
         </Prose>

@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-
+import mdx from '@astrojs/mdx';
 import solidJs from "@astrojs/solid-js";
 
 const site = "https://ecojrsg.github.io";
@@ -9,7 +9,8 @@ const site = "https://ecojrsg.github.io";
 export default defineConfig({
   site: site,
 
-  integrations: [tailwind(), solidJs()],
+  integrations: [tailwind(), solidJs(), mdx()],
+
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

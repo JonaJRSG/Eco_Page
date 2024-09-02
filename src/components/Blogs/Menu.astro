@@ -1,0 +1,84 @@
+---
+import Logo from "@/components/Logo.astro";
+
+type Props = {
+    menu?: string[]
+    subMenu?: string[][]
+    autores: string[]
+    lastUp: string
+    hiddenMenu: string
+    i18n: {
+        LayoutBlog: {
+            menu: string
+            authors: string
+            lastUpdate: string
+        }
+    }
+}
+
+let {menu, subMenu, autores, lastUp, i18n, hiddenMenu } = Astro.props
+
+if(menu == undefined) {
+    menu = []
+}
+
+if(subMenu == undefined) {
+    subMenu = menu.map(() => {
+        return []
+    })
+}
+---
+
+<div class=`px-5 lg:${hiddenMenu} flex-col gap-3 cero:hidden max-h-screen` id="menu">
+    <div class="flex justify-between items-center gap-4 opacity-80">
+        <h2 class="font-satoshi font-bold text-2xl">Índice</h2>
+        <Logo class="w-8"/>
+    </div>
+    <hr class="bg-white opacity-80">
+    <ul class="opacity-80 overflow-auto list-disc list-inside">
+        {menu.map((elem, ind) => {
+            const elemC = elem.toLowerCase()
+            const elemHref = elemC.replace(/ /g, "-")
+            return (
+                <div class="pb-1">
+                    <li class="hover:text-Eco-100">
+                        <a href={`#${elemHref}`}>
+                            {elem}
+                        </a>
+                    </li>
+                    <ul class="list-none list-inside">
+                        {subMenu[ind].map((subelem) => {
+                            if(subelem[0] != undefined){
+                                const subelemC = subelem.toLowerCase()
+                                const subelemHref = subelemC.replace(/ /g, "-")
+                                return (
+                                <li class="pl-8 text-sm hover:text-Eco-100">
+                                    <a href={`#${subelemHref}`}>
+                                    {subelem}
+                                    </a>
+                                </li>
+                                )
+                            }
+                        })}
+                    </ul>
+                </div>
+            )
+        })}
+    </ul>
+    <hr class="bg-white opacity-80">
+    <div class="opacity-80">
+        <div class="pb-3">
+            <p>{`${i18n.LayoutBlog.authors}:`}</p>
+            {autores.map((autor) => {
+            return <p class="p-2 bg-[#4a4a4a] inline-block rounded-lg m-0.5">{`# ${autor}`}</p>
+            })}
+        </div>
+        <div>
+            <p>{`${i18n.LayoutBlog.lastUpdate}:`}</p>
+            <div class="flex justify-center pt-1">
+                <p class="p-2 bg-[#4a4a4a] inline-block rounded-lg">{lastUp}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
